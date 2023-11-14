@@ -1,5 +1,11 @@
-**/.DS_Store
+*.bak
+*.tmp
+*tmplate*
+*[#~]
+node_modules/
+tmp/
 
+**/.DS_Store
 
 # Logs
 logs
