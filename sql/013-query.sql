@@ -2,7 +2,7 @@
 -- Date: 2023-11-14
 -- File: 013-query.sql
 
-# Task:
+-----------------------Task---------------------
 /*
         Create query to display name, job, hiring date and emplyee
         number for each employee.
@@ -13,7 +13,7 @@ SELECT ename, job, hiredate, empno
 FROM emp;
 
 
-# Varify:
+-------------------------Varify------------------
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 -- Loading resources from /Users/jingjingyang/.sqliterc
