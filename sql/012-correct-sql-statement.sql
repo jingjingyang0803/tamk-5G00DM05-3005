@@ -2,7 +2,7 @@
 -- Date: 2023-11-14
 -- File: 012-correct-sql-statement.sql
 
-# Task:
+-----------------------Task---------------------
 /*
         There are errors in this statement. Identify them all and
         correct the statement and run it.
@@ -18,7 +18,7 @@ SELECT empno, ename, sal * 12 AS "ANNUAL SALARY"
 FROM emp;
 
 
-# Varify:
+-------------------------Varify------------------
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 -- Loading resources from /Users/jingjingyang/.sqliterc
