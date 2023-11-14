@@ -2,10 +2,16 @@
 -- Date: 2023-11-14
 -- File: 011-list-tables.sql
 
-# What is the command is used to list all tables in database.
+-----------------------Task---------------------
+/*
+            What is the command is used to list all tables in database.
+*/
+
+
 .tables
 
-# Varify:
+
+-------------------------Varify------------------
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db 
 -- Loading resources from /Users/jingjingyang/.sqliterc
