@@ -31,16 +31,6 @@ CREATE TABLE person (
 );
 
 
-CREATE TABLE person (
-    id SERIAL PRIMARY KEY,
-    last VARCHAR(255),
-    first VARCHAR(255),
-    phone VARCHAR(255) CHECK(phone LIKE '+%' AND phone NOT LIKE '%[^0-9 +]%'),
-    zip INT,
-    city VARCHAR(255),
-    address VARCHAR(255)
-);
-
 -- The expression `phone LIKE '+%'` checks that the phone number begins with a plus sign.
 -- The expression `phone NOT LIKE '%[^0-9 +]%'` ensures that the phone number does not contain any character other than digits, spaces, and plus sign. 
 -- This is done using a regular expression where `[^0-9 +]` means any character not in the set `0-9`, `space`, and `+`.
