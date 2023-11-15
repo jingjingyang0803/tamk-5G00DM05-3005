@@ -1,4 +1,4 @@
-g-- Author: Jingjing Yang <jingjing.yang@tuni.fi>
+-- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 124-insert.sql
 
