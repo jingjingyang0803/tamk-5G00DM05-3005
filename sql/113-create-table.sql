@@ -21,7 +21,7 @@
 
 
 CREATE TABLE weather (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     time_of_reading TIMESTAMP,
     high DECIMAL(4, 1),
     low DECIMAL(4, 1),
@@ -51,6 +51,27 @@ sqlite> PRAGMA table_info(weather);
 cid  name             type           notnull  dflt_value  pk
 ---  ---------------  -------------  -------  ----------  --
 0    id               SERIAL         0        NULL        1 
+1    time_of_reading  TIMESTAMP      0        NULL        0 
+2    high             DECIMAL(4, 1)  0        NULL        0 
+3    low              DECIMAL(4, 1)  0        NULL        0 
+4    sig              CHAR(2)        0        NULL        0 
+5    comment          VARCHAR(255)   0        NULL        0 
+
+sqlite> DROP TABLE weather;
+
+sqlite> CREATE TABLE weather (
+   ...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>     time_of_reading TIMESTAMP,
+   ...>     high DECIMAL(4, 1),
+   ...>     low DECIMAL(4, 1),
+   ...>     sig CHAR(2),
+   ...>     comment VARCHAR(255)
+   ...> );
+   
+sqlite> PRAGMA table_info(weather);
+cid  name             type           notnull  dflt_value  pk
+---  ---------------  -------------  -------  ----------  --
+0    id               INTEGER        0        NULL        1 
 1    time_of_reading  TIMESTAMP      0        NULL        0 
 2    high             DECIMAL(4, 1)  0        NULL        0 
 3    low              DECIMAL(4, 1)  0        NULL        0 
