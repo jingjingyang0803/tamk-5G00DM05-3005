@@ -18,10 +18,10 @@
 */
 
 
-INSERT INTO football(id, first, last, team, comment)
-VALUES (1, 'Jim', 'Anders', 'Manchester', 'UPS 10'),
-       (2, 'Mark', 'Knofles', 'Liverpool', 'Rockwell international'),
-       (3, 'Jenny', 'Richards', 'Highland', 'Scottish national');
+INSERT INTO football(first, last, team, comment)
+VALUES ('Jim', 'Anders', 'Manchester', 'UPS 10'),
+       ('Mark', 'Knofles', 'Liverpool', 'Rockwell international'),
+       ('Jenny', 'Richards', 'Highland', 'Scottish national');
 
 
 --================== Varify =====================
@@ -31,10 +31,10 @@ jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 SQLite version 3.39.5 2022-10-14 20:58:05
 Enter ".help" for usage hints.
 
-sqlite> INSERT INTO football(id, first, last, team, comment)
-   ...> VALUES (1, 'Jim', 'Anders', 'Manchester', 'UPS 10'),
-   ...>        (2, 'Mark', 'Knofles', 'Liverpool', 'Rockwell international'),
-   ...>        (3, 'Jenny', 'Richards', 'Highland', 'Scottish national'); 
+sqlite> INSERT INTO football(first, last, team, comment)
+   ...> VALUES ('Jim', 'Anders', 'Manchester', 'UPS 10'),
+   ...>        ('Mark', 'Knofles', 'Liverpool', 'Rockwell international'),
+   ...>        ('Jenny', 'Richards', 'Highland', 'Scottish national');
    
 sqlite> SELECT * FROM football;
 id  first  last      team        comment               
