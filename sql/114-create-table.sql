@@ -18,7 +18,7 @@
 
 
 CREATE TABLE inventory (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     item VARCHAR(255),
     worth INT,
     comment VARCHAR(255)
@@ -43,6 +43,23 @@ sqlite> PRAGMA table_info(inventory);
 cid  name     type          notnull  dflt_value  pk
 ---  -------  ------------  -------  ----------  --
 0    id       SERIAL        0        NULL        1 
+1    item     VARCHAR(255)  0        NULL        0 
+2    worth    INT           0        NULL        0 
+3    comment  VARCHAR(255)  0        NULL        0 
+
+sqlite> DROP TABLE inventory;
+
+sqlite> CREATE TABLE inventory (
+   ...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>     item VARCHAR(255),
+   ...>     worth INT,
+   ...>     comment VARCHAR(255)
+   ...> );
+   
+sqlite> PRAGMA table_info(inventory);
+cid  name     type          notnull  dflt_value  pk
+---  -------  ------------  -------  ----------  --
+0    id       INTEGER       0        NULL        1 
 1    item     VARCHAR(255)  0        NULL        0 
 2    worth    INT           0        NULL        0 
 3    comment  VARCHAR(255)  0        NULL        0 
