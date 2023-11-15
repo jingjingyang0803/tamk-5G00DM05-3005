@@ -18,10 +18,10 @@
 */
 
 
-INSERT INTO inventory(id, item, worth, comment)
-VALUES (1, 'baseball', 150, 'My first baseball'),
-       (2, 'bike', 2000, 'For mountain riding'),
-       (3, 'playcards', 10, 'Funny pictures');
+INSERT INTO inventory(item, worth, comment)
+VALUES ('baseball', 150, 'My first baseball'),
+       ('bike', 2000, 'For mountain riding'),
+       ('playcards', 10, 'Funny pictures');
 
 
 --================== Varify =====================
@@ -31,17 +31,17 @@ jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 SQLite version 3.39.5 2022-10-14 20:58:05
 Enter ".help" for usage hints.
 
-sqlite> INSERT INTO inventory(id, item, worth, comment)
-   ...> VALUES (1, 'baseball', 150, 'My first baseball'),
-   ...>        (2, 'bike', 2000, 'For mountain riding'),
-   ...>        (3, 'playcards', 10, 'Funny pictures');
-
+sqlite> INSERT INTO inventory(item, worth, comment)
+   ...> VALUES ('baseball', 150, 'My first baseball'),
+   ...>        ('bike', 2000, 'For mountain riding'),
+   ...>        ('playcards', 10, 'Funny pictures');
+   
 sqlite> SELECT * FROM inventory;
 id  item       worth  comment            
 --  ---------  -----  -------------------
 1   baseball   150    My first baseball  
 2   bike       2000   For mountain riding
-3   playcards  10     Funny pictures    
+3   playcards  10     Funny pictures     
 */
 
 -- End of file
