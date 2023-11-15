@@ -17,7 +17,7 @@
 
 
 CREATE TABLE football (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     first VARCHAR(255),
     last VARCHAR(255),
     team VARCHAR(255),
@@ -44,6 +44,25 @@ sqlite> PRAGMA table_info(football);
 cid  name     type          notnull  dflt_value  pk
 ---  -------  ------------  -------  ----------  --
 0    id       SERIAL        0        NULL        1 
+1    first    VARCHAR(255)  0        NULL        0 
+2    last     VARCHAR(255)  0        NULL        0 
+3    team     VARCHAR(255)  0        NULL        0 
+4    comment  VARCHAR(255)  0        NULL        0 
+
+sqlite> DROP TABLE football;
+
+sqlite> CREATE TABLE football (
+   ...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>     first VARCHAR(255),
+   ...>     last VARCHAR(255),
+   ...>     team VARCHAR(255),
+   ...>     comment VARCHAR(255)
+   ...> );
+   
+sqlite> PRAGMA table_info(football);
+cid  name     type          notnull  dflt_value  pk
+---  -------  ------------  -------  ----------  --
+0    id       INTEGER       0        NULL        1 
 1    first    VARCHAR(255)  0        NULL        0 
 2    last     VARCHAR(255)  0        NULL        0 
 3    team     VARCHAR(255)  0        NULL        0 
