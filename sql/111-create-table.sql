@@ -21,7 +21,7 @@
 
 
 CREATE TABLE person (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     last VARCHAR(255),
     first VARCHAR(255),
     phone VARCHAR(255) CHECK(phone NOT LIKE '%[^0-9 +]%'),
@@ -69,7 +69,7 @@ bonus      dept       football   item       price      salgrade
 customer   emp        inventory  ordx       product    weather  
 
 sqlite> CREATE TABLE person (
-   ...>     id SERIAL PRIMARY KEY,
+   ...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
    ...>     last VARCHAR(255),
    ...>     first VARCHAR(255),
    ...>     phone VARCHAR(255) CHECK(phone NOT LIKE '%[^0-9 +]%'),
@@ -77,6 +77,17 @@ sqlite> CREATE TABLE person (
    ...>     city VARCHAR(255),
    ...>     address VARCHAR(255)
    ...> );
+
+sqlite> PRAGMA table_info(person);
+cid  name     type          notnull  dflt_value  pk
+---  -------  ------------  -------  ----------  --
+0    id       INTEGER       0        NULL        1 
+1    last     VARCHAR(255)  0        NULL        0 
+2    first    VARCHAR(255)  0        NULL        0 
+3    phone    VARCHAR(255)  0        NULL        0 
+4    zip      INT           0        NULL        0 
+5    city     VARCHAR(255)  0        NULL        0 
+6    address  VARCHAR(255)  0        NULL        0 
 */
 
 -- End of file
