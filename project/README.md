@@ -52,22 +52,25 @@ Using curl to interact with the API:
 
 ```bash
 jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000
-Found. Redirecting to /clothes%                                                 jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes
+Found. Redirecting to /clothes%
+jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes
 [{"id":1,"name":"Denim Jacket","type":"Jacket","size":"M","color":"Blue","price":59.99},{"id":2,"name":"Leather Boots","type":"Shoes","size":"8","color":"Black","price":89.99},{"id":3,"name":"Floral Dress","type":"Dress","size":"S","color":"Multicolor","price":45.99},{"id":4,"name":"Cotton T-Shirt","type":"Shirt","size":"L","color":"White","price":15.99}]%
 
 jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes/1
 {"id":1,"name":"Denim Jacket","type":"Jacket","size":"M","color":"Blue","price":59.99}%
 
-jingjingyang@jingjings-MacBook-Pro ~ % curl -X POST -H "Content-Type: application/json" -d '{"name":"Wool Sweater","type":"Sweater","size":"L","color":"Red","price":60.99}' http://localhost:3000/clothes
-{"id":5}%                                                                       jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes
+jingjingyang@jingjings-MacBook-Pro ~ % curl -X POST -H "Content-Type: application/json" -d '{"name":"Wool Sweater","type":"Sweater","size":"L","color":"Red","price":60.99}' http://localhost:3000/clothes{"id":5}%
+jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes
 [{"id":1,"name":"Denim Jacket","type":"Jacket","size":"M","color":"Blue","price":59.99},{"id":2,"name":"Leather Boots","type":"Shoes","size":"8","color":"Black","price":89.99},{"id":3,"name":"Floral Dress","type":"Dress","size":"S","color":"Multicolor","price":45.99},{"id":4,"name":"Cotton T-Shirt","type":"Shirt","size":"L","color":"White","price":15.99},{"id":5,"name":"Wool Sweater","type":"Sweater","size":"L","color":"Red","price":60.99}]%
 
 jingjingyang@jingjings-MacBook-Pro ~ % curl -X PUT -H "Content-Type: application/json" -d '{"name":"Denim Jacket","type":"Jacket","size":"XL","color":"Brown","price":50.99}' http://localhost:3000/clothes/1
-{"message":"Row updated","changes":1}%                                          jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes/1
+{"message":"Row updated","changes":1}%
+jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes/1
 {"id":1,"name":"Denim Jacket","type":"Jacket","size":"XL","color":"Brown","price":50.99}%
 
 jingjingyang@jingjings-MacBook-Pro ~ % curl -X DELETE http://localhost:3000/clothes/1
-{"message":"Row deleted","changes":1}%                                          jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes/1
+{"message":"Row deleted","changes":1}%
+jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes/1
 jingjingyang@jingjings-MacBook-Pro ~ % curl http://localhost:3000/clothes
 [{"id":2,"name":"Leather Boots","type":"Shoes","size":"8","color":"Black","price":89.99},{"id":3,"name":"Floral Dress","type":"Dress","size":"S","color":"Multicolor","price":45.99},{"id":4,"name":"Cotton T-Shirt","type":"Shirt","size":"L","color":"White","price":15.99},{"id":5,"name":"Wool Sweater","type":"Sweater","size":"L","color":"Red","price":60.99}]%
 ```
