@@ -14,7 +14,7 @@
 
 SELECT ename, job, sal
 FROM emp
-WHERE job IN ('CLERK', 'ANALYST') AND sal NOT IN (1000, 5000);
+WHERE UPPER(job) IN ('CLERK', 'ANALYST') AND sal NOT IN (1000, 5000);
 
 
 --================== Varify =====================
@@ -38,7 +38,7 @@ cid  name      type          notnull  dflt_value  pk
 
 sqlite> SELECT ename, job, sal
    ...> FROM emp
-   ...> WHERE job IN ('CLERK', 'ANALYST') AND sal NOT IN (1000, 5000);
+   ...> WHERE UPPER(job) IN ('CLERK', 'ANALYST') AND sal NOT IN (1000, 5000);
 ename   job      sal 
 ------  -------  ----
 SMITH   CLERK    800 
