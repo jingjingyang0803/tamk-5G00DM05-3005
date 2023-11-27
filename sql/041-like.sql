@@ -14,7 +14,7 @@
 
 SELECT ename
 FROM emp
-WHERE ename LIKE '__a%';
+WHERE LOWER(ename) LIKE '__a%';
 
 
 --================== Varify =====================
@@ -57,7 +57,7 @@ MILLER
 
 sqlite> SELECT ename
    ...> FROM emp
-   ...> WHERE ename LIKE '__a%';
+   ...> WHERE LOWER(ename) LIKE '__a%';
 ename
 -----
 BLAKE
