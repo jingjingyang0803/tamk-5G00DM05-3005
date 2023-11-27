@@ -15,7 +15,7 @@
 SELECT ename, dname, comm
 FROM emp
 JOIN dept ON emp.deptno = dept.deptno
-WHERE comm IS NOT NULL AND comm != 0
+WHERE comm IS NOT NULL AND comm > 0
 ORDER BY ename;
 
 
@@ -59,7 +59,7 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 sqlite> SELECT ename, dname, comm
    ...> FROM emp
    ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE comm IS NOT NULL AND comm != 0
+   ...> WHERE comm IS NOT NULL AND comm > 0
    ...> ORDER BY ename;
 ename   dname  comm
 ------  -----  ----
