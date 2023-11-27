@@ -17,7 +17,7 @@
 SELECT m.ename AS "Manager", m.empno AS "Mgr#", e.ename AS "Employee", e.empno AS "Emp#"
 FROM emp e
 JOIN emp m ON e.mgr = m.empno
-WHERE m.ename IN ('BLAKE', 'FORD', 'SCOTT')
+WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
 ORDER BY "Manager", "Employee";
 
 
@@ -49,7 +49,7 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 sqlite> SELECT m.ename AS "Manager", m.empno AS "Mgr#", e.ename AS "Employee", e.empno AS "Emp#"
    ...> FROM emp e
    ...> JOIN emp m ON e.mgr = m.empno
-   ...> WHERE m.ename IN ('BLAKE', 'FORD', 'SCOTT')
+   ...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
    ...> ORDER BY "Manager", "Employee";
 Manager  Mgr#  Employee  Emp#
 -------  ----  --------  ----
