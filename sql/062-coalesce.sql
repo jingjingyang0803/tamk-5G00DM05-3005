@@ -1,37 +1,36 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 062-coalesce.sql
-
 --================== Task ======================
 /*
-    6.2 Coalesce 2
+6.2 Coalesce 2
 
-        Display the *total* *net* *income* of each employee per month.
-        The total income is result of salary and comission which both
-        are paid monthly. The salary's tax rate is 31% and comission's
-        tax rate is 20%. Sort the results by the net income (lowest
-        first).
+Display the *total* *net* *income* of each employee per month.
+The total income is result of salary and comission which both
+are paid monthly. The salary's tax rate is 31% and comission's
+tax rate is 20%. Sort the results by the net income (lowest
+first).
 
-            Name     Net Income Tax
-            -------- ---------- -------
-            SMITH    1600       408
-            JAMES    1900       484
-            ...
-*/
-
-
+Name     Net Income Tax
+-------- ---------- -------
+SMITH    1600       408
+JAMES    1900       484
+...
+ */
 SELECT
     ename AS "Name",
     (sal + COALESCE(comm, sal)) AS "Net Income",
-    CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS "Tax"
-FROM emp
-ORDER BY "Net Income";
+    CAST(
+        ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER
+    ) AS "Tax"
+FROM
+    emp
+ORDER BY
+    "Net Income";
 
 -- ??? I can only get (SMITH    1600       408, JAMES    1900       484) by setting null comission same value as salary, 
 -- but the results are not same as required then. 
 -- is there updates of create.sql? Maybe some difference in the test.db.
-
-
 --================== Varify =====================
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
@@ -58,11 +57,11 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT
-   ...>     ename AS "Name",
-   ...>     (sal + COALESCE(comm, sal)) AS "Net Income",
-   ...>     CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS "Tax"
-   ...> FROM emp
-   ...> ORDER BY "Net Income";
+...>     ename AS "Name",
+...>     (sal + COALESCE(comm, sal)) AS "Net Income",
+...>     CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS "Tax"
+...> FROM emp
+...> ORDER BY "Net Income";
 Name    Net Income  Tax 
 ------  ----------  ----
 TURNER  1500        465 
@@ -79,6 +78,5 @@ JONES   5950        1517
 SCOTT   6000        1530
 FORD    6000        1530
 KING    10000       2550
-*/
-
+ */
 -- End of file
