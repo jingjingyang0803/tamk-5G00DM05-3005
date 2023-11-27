@@ -21,11 +21,11 @@
 
 
 SELECT
-    ename AS 'Name',
-    (sal + COALESCE(comm, sal)) AS 'Net Income',
-    CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS 'Tax'
+    ename AS "Name",
+    (sal + COALESCE(comm, sal)) AS "Net Income",
+    CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS "Tax"
 FROM emp
-ORDER BY [Net Income];
+ORDER BY "Net Income";
 
 -- ??? I can only get (SMITH    1600       408, JAMES    1900       484) by setting null comission same value as salary, 
 -- but the results are not same as required then. 
@@ -58,11 +58,11 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT
-   ...>     ename AS 'Name',
-   ...>     (sal + COALESCE(comm, sal)) AS 'Net Income',
-   ...>     CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS 'Tax'
+   ...>     ename AS "Name",
+   ...>     (sal + COALESCE(comm, sal)) AS "Net Income",
+   ...>     CAST(ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER) AS "Tax"
    ...> FROM emp
-   ...> ORDER BY [Net Income];
+   ...> ORDER BY "Net Income";
 Name    Net Income  Tax 
 ------  ----------  ----
 TURNER  1500        465 
