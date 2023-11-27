@@ -1,26 +1,29 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 073-functions.sql
-
 --================== Task ======================
 /*
-    7.3 Functions 3
+7.3 Functions 3
 
-        Display the employee number, employee name and "new salary"
-        which is salary increased by 15%. Add column "increase
-        that substracts salary from the "new salary".
-        Round the values to whole numbers. Order the results by name
-        (alphabetically) and "new salary" (lowest first).
+Display the employee number, employee name and "new salary"
+which is salary increased by 15%. Add column "increase
+that substracts salary from the "new salary".
+Round the values to whole numbers. Order the results by name
+(alphabetically) and "new salary" (lowest first).
 
-            empno  ename new salary increase
-            -----  ----- ---------- --------
-*/
-
-
-SELECT empno, ename, CAST(ROUND(sal * 1.15) AS INTEGER) AS 'new salary', CAST(ROUND(sal * 1.15) - sal AS INTEGER) AS increase
-FROM emp
-ORDER BY ename, [new salary];
-
+empno  ename new salary increase
+-----  ----- ---------- --------
+ */
+SELECT
+    empno,
+    ename,
+    CAST(ROUND(sal * 1.15) AS INTEGER) AS "new salary",
+    CAST(ROUND(sal * 1.15) - sal AS INTEGER) AS "increase"
+FROM
+    emp
+ORDER BY
+    ename,
+    "new salary";
 
 --================== Varify =====================
 /*
@@ -30,9 +33,9 @@ jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 SQLite version 3.39.5 2022-10-14 20:58:05
 Enter ".help" for usage hints.
 
-sqlite> SELECT empno, ename, CAST(ROUND(sal * 1.15) AS INTEGER) AS 'new salary', CAST(ROUND(sal * 1.15) - sal AS INTEGER) AS increase
-   ...> FROM emp
-   ...> ORDER BY ename, [new salary];
+sqlite> SELECT empno, ename, CAST(ROUND(sal * 1.15) AS INTEGER) AS "new salary", CAST(ROUND(sal * 1.15) - sal AS INTEGER) AS "increase"
+...> FROM emp
+...> ORDER BY ename, "new salary";
 empno  ename   new salary  increase
 -----  ------  ----------  --------
 7876   ADAMS   1265        165     
@@ -49,6 +52,5 @@ empno  ename   new salary  increase
 7369   SMITH   920         120     
 7844   TURNER  1725        225     
 7521   WARD    1438        188 
-*/
-
+ */
 -- End of file
