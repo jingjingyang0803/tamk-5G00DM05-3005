@@ -1,28 +1,33 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 034-order-by.sql
-
 --================== Task ======================
 /*
-    3.4 Order by 4
+3.4 Order by 4
 
-        Display the name, salary and calculate new salary and
-        commission for all employees whose commission amount is
-        greater than their salary increased by 10%. Sort the result by
-        employee name (alphabetically), salary (lowest first) and
-        commission (lowest first). Display:
+Display the name, salary and calculate new salary and
+commission for all employees whose commission amount is
+greater than their salary increased by 10%. Sort the result by
+employee name (alphabetically), salary (lowest first) and
+commission (lowest first). Display:
 
-            Employee   Monthly Salary Sal 10% Comm
-            ---------- -------------- ------- ----
-            MARTIN               1250  1375.0 1400
-*/
-
-
-SELECT ename AS "Employee", sal AS "Monthly Salary", sal*1.1 AS "Sal 10%", comm AS "Comm"
-FROM emp
-WHERE comm > sal*1.1
-ORDER BY "Employee" ASC, "Monthly Salary" ASC, "Comm" ASC;
-
+Employee   Monthly Salary Sal 10% Comm
+---------- -------------- ------- ----
+MARTIN               1250  1375.0 1400
+ */
+SELECT
+    ename AS "Employee",
+    sal AS "Monthly Salary",
+    sal * 1.1 AS "Sal 10%",
+    comm AS "Comm"
+FROM
+    emp
+WHERE
+    comm > sal * 1.1
+ORDER BY
+    "Employee" ASC,
+    "Monthly Salary" ASC,
+    "Comm" ASC;
 
 --================== Varify =====================
 /*
@@ -44,12 +49,11 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT ename AS "Employee", sal AS "Monthly Salary", sal*1.1 AS "Sal 10%", comm AS "Comm"
-   ...> FROM emp
-   ...> WHERE comm > sal*1.1
-   ...> ORDER BY "Employee" ASC, "Monthly Salary" ASC, "Comm" ASC;
+...> FROM emp
+...> WHERE comm > sal*1.1
+...> ORDER BY "Employee" ASC, "Monthly Salary" ASC, "Comm" ASC;
 Employee  Monthly Salary  Sal 10%  Comm
 --------  --------------  -------  ----
 MARTIN    1250            1375.0   1400
-*/
-
+ */
 -- End of file
