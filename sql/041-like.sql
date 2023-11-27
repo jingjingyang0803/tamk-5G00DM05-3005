@@ -1,21 +1,20 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 041-like.sql
-
 --================== Task ======================
 /*
-    4.1 Like 1
+4.1 Like 1
 
-        Display the names of all employees where the third letter
-        of their name contains character a. Make the query generic for
-        all names.
-*/
-
-
-SELECT ename
-FROM emp
-WHERE LOWER(ename) LIKE '__a%';
-
+Display the names of all employees where the third letter
+of their name contains character a. Make the query generic for
+all names.
+ */
+SELECT
+   ename
+FROM
+   emp
+WHERE
+   LOWER(ename) LIKE '__a%';
 
 --================== Varify =====================
 /*
@@ -37,7 +36,7 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT DISTINCT ename
-   ...> FROM emp;
+...> FROM emp;
 ename 
 ------
 SMITH 
@@ -56,13 +55,12 @@ FORD
 MILLER
 
 sqlite> SELECT ename
-   ...> FROM emp
-   ...> WHERE LOWER(ename) LIKE '__a%';
+...> FROM emp
+...> WHERE LOWER(ename) LIKE '__a%';
 ename
 -----
 BLAKE
 CLARK
 ADAMS
-*/
-
+ */
 -- End of file
