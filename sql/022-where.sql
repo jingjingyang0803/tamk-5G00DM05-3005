@@ -11,9 +11,9 @@
 */
 
 
-SELECT ename, sal
+SELECT ename, deptno
 FROM emp
-WHERE sal > 2850;
+WHERE empno = 7566;
 
 
 --================== Varify =====================
