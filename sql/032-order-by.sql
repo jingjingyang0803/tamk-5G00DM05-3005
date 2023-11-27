@@ -1,23 +1,27 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 032-order-by.sql
-
 --================== Task ======================
 /*
-    3.2 Order by 2
+3.2 Order by 2
 
-        2. Display employee number, name, department number and hiring
-        date for all employees whose ID number is above 7900
-        or below 7600. Sort the results by the employee
-        number (lowest first).
-*/
-
-
-SELECT empno, ename, deptno, hiredate
-FROM emp
-WHERE empno > 7900 OR empno < 7600
-ORDER BY empno ASC;
-
+2. Display employee number, name, department number and hiring
+date for all employees whose ID number is above 7900
+or below 7600. Sort the results by the employee
+number (lowest first).
+ */
+SELECT
+    empno,
+    ename,
+    deptno,
+    hiredate
+FROM
+    emp
+WHERE
+    empno > 7900
+    OR empno < 7600
+ORDER BY
+    empno ASC;
 
 --================== Varify =====================
 /*
@@ -39,9 +43,9 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT empno, ename, deptno, hiredate
-   ...> FROM emp
-   ...> WHERE empno > 7900 OR empno < 7600
-   ...> ORDER BY empno ASC;
+...> FROM emp
+...> WHERE empno > 7900 OR empno < 7600
+...> ORDER BY empno ASC;
 empno  ename   deptno  hiredate  
 -----  ------  ------  ----------
 7369   SMITH   20      1980-12-17
@@ -50,6 +54,5 @@ empno  ename   deptno  hiredate
 7566   JONES   20      1981-04-02
 7902   FORD    20      1981-12-03
 7934   MILLER  10      1982-01-23
-*/
-
+ */
 -- End of file
