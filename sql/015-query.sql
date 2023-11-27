@@ -1,28 +1,27 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 015-query.sql
-
 --================== Task ======================
 /*
-    1.5 Query 3
+1.5 Query 3
 
-        Create a query to display unique jobs. Order
-        alphabetically.
+Create a query to display unique jobs. Order
+alphabetically.
 
-                job
-                --------
-                ANALYST
-                CLERK
-                MANAGER
-                PRESIDENT
-                SALESMAN
-*/
-
-
-SELECT DISTINCT job
-FROM emp
-ORDER BY job;
-
+job
+--------
+ANALYST
+CLERK
+MANAGER
+PRESIDENT
+SALESMAN
+ */
+SELECT DISTINCT
+    job
+FROM
+    emp
+ORDER BY
+    job;
 
 --================== Varify =====================
 /*
@@ -42,8 +41,8 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 sqlite> SELECT DISTINCT job
-   ...> FROM emp
-   ...> ORDER BY job;
+...> FROM emp
+...> ORDER BY job;
 job      
 ---------
 ANALYST  
@@ -51,6 +50,5 @@ CLERK
 MANAGER  
 PRESIDENT
 SALESMAN 
-*/
-
+ */
 -- End of file
