@@ -1,24 +1,28 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 102-multiple-tables-self-join.sql
-
 --================== Task ======================
 /*
-    10.2 Multiple tables and self join 2
+10.2 Multiple tables and self join 2
 
-        Display the department number, employee name and all the
-        employees that work in the same department (Colleagues). Label
-        columns "Dept", "Employee" and "Colleague". Order the results
-        by "Dept" (lowest first), "Employee" (alphabetically) and
-        "Colleague" (alphabetically).
-*/
-
-
-SELECT e1.deptno AS "Dept", e1.ename AS "Employee", e2.ename AS "Colleague"
-FROM emp e1
-JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno <> e2.empno
-ORDER BY "Dept", "Employee", "Colleague";
-
+Display the department number, employee name and all the
+employees that work in the same department (Colleagues). Label
+columns "Dept", "Employee" and "Colleague". Order the results
+by "Dept" (lowest first), "Employee" (alphabetically) and
+"Colleague" (alphabetically).
+ */
+SELECT
+    e1.deptno AS "Dept",
+    e1.ename AS "Employee",
+    e2.ename AS "Colleague"
+FROM
+    emp e1
+    JOIN emp e2 ON e1.deptno = e2.deptno
+    AND e1.empno <> e2.empno
+ORDER BY
+    "Dept",
+    "Employee",
+    "Colleague";
 
 --================== Varify =====================
 /*
@@ -46,9 +50,9 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT e1.deptno AS "Dept", e1.ename AS "Employee", e2.ename AS "Colleague"
-   ...> FROM emp e1
-   ...> JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno <> e2.empno
-   ...> ORDER BY "Dept", "Employee", "Colleague";
+...> FROM emp e1
+...> JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno <> e2.empno
+...> ORDER BY "Dept", "Employee", "Colleague";
 Dept  Employee  Colleague
 ----  --------  ---------
 10    CLARK     KING     
@@ -107,6 +111,5 @@ Dept  Employee  Colleague
 30    WARD      JAMES    
 30    WARD      MARTIN   
 30    WARD      TURNER  
-*/
-
+ */
 -- End of file
