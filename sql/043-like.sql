@@ -1,33 +1,37 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 043-like.sql
-
 --================== Task ======================
 /*
-    4.3 Like 3
+4.3 Like 3
 
-        Display the name of all employees who have two *L*
-        characters in their name. All these must work in department 10
-        or their manager is 7782. Make the query generic for all names.
-*/
-
-
-SELECT ename
-FROM emp
-WHERE ename LIKE '%L%L%' AND (deptno = 10 OR mgr = 7782);
-
+Display the name of all employees who have two *L*
+characters in their name. All these must work in department 10
+or their manager is 7782. Make the query generic for all names.
+ */
+SELECT
+   ename
+FROM
+   emp
+WHERE
+   ename LIKE '%L%L%'
+   AND (
+      deptno = 10
+      OR mgr = 7782
+   );
 
 --================== Task continue ======================
 /*
-        Display the name and hire date of every employee who
-        were hired in 1982. Use LIKE keyword in query.
-*/
-
-
-SELECT ename, hiredate
-FROM emp
-WHERE hiredate LIKE '1982%';
-
+Display the name and hire date of every employee who
+were hired in 1982. Use LIKE keyword in query.
+ */
+SELECT
+   ename,
+   hiredate
+FROM
+   emp
+WHERE
+   hiredate LIKE '1982%';
 
 --================== Varify =====================
 /*
@@ -49,7 +53,7 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT DISTINCT hiredate
-   ...> FROM emp;
+...> FROM emp;
 hiredate  
 ----------
 1980-12-17
@@ -67,12 +71,11 @@ hiredate
 1982-01-23
 
 sqlite> SELECT ename, hiredate
-   ...> FROM emp
-   ...> WHERE hiredate LIKE '1982%';
+...> FROM emp
+...> WHERE hiredate LIKE '1982%';
 ename   hiredate  
 ------  ----------
 SCOTT   1982-12-09
 MILLER  1982-01-23
-*/
-
+ */
 -- End of file
