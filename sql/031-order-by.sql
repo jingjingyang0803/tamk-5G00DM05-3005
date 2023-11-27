@@ -18,7 +18,7 @@
 
 SELECT ename, sal, sal*1.15 AS 'new salary'
 FROM emp
-WHERE mgr = (SELECT empno FROM emp WHERE ename = 'BLAKE')
+WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
 ORDER BY sal*1.15 ASC, ename ASC;
 
 
@@ -43,7 +43,7 @@ cid  name      type          notnull  dflt_value  pk
 
 sqlite> SELECT ename, sal, sal*1.15 AS 'new salary'
    ...> FROM emp
-   ...> WHERE mgr = (SELECT empno FROM emp WHERE ename = 'BLAKE')
+   ...> WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
    ...> ORDER BY sal*1.15 ASC, ename ASC;
 ename   sal   new salary
 ------  ----  ----------
