@@ -16,10 +16,10 @@
 */
 
 
-SELECT deptno AS Dept, ename AS Employee, sal*0.31 AS Taxes
+SELECT deptno AS "Dept", ename AS "Employee", sal*0.31 AS "Taxes"
 FROM emp
 WHERE deptno = 10
-ORDER BY Dept ASC, Employee ASC;
+ORDER BY "Dept" ASC, "Employee" ASC;
 
 -- ??? Sorting by department number in this specific query doesn't have a practical effect, as all selected records are from department 10. 
 
@@ -43,10 +43,10 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 
-sqlite> SELECT deptno AS Dept, ename AS Employee, sal*0.31 AS Taxes
+sqlite> SELECT deptno AS "Dept", ename AS "Employee", sal*0.31 AS "Taxes"
    ...> FROM emp
    ...> WHERE deptno = 10
-   ...> ORDER BY Dept ASC, Employee ASC;
+   ...> ORDER BY "Dept" ASC, "Employee" ASC;
 Dept  Employee  Taxes 
 ----  --------  ------
 10    CLARK     759.5 
