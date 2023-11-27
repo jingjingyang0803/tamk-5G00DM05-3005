@@ -16,7 +16,7 @@
 
 SELECT e1.deptno AS "Dept", e1.ename AS "Employee", e2.ename AS "Colleague"
 FROM emp e1
-JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno != e2.empno
+JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno <> e2.empno
 ORDER BY "Dept", "Employee", "Colleague";
 
 
@@ -47,7 +47,7 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 
 sqlite> SELECT e1.deptno AS "Dept", e1.ename AS "Employee", e2.ename AS "Colleague"
    ...> FROM emp e1
-   ...> JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno != e2.empno
+   ...> JOIN emp e2 ON e1.deptno = e2.deptno AND e1.empno <> e2.empno
    ...> ORDER BY "Dept", "Employee", "Colleague";
 Dept  Employee  Colleague
 ----  --------  ---------
