@@ -1,24 +1,27 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 091-multiple-tables.sql
-
 --================== Task ======================
 /*
-    9.1 Multiple tables 1
+9.1 Multiple tables 1
 
-        Write a query to display employee's name,
-        department number and department name for all employees who
-        work in Dallas or whose job title is salesman. Order
-        the results by name (alphabetically).
-*/
-
-
-SELECT emp.ename, emp.deptno, dept.dname
-FROM emp
-JOIN dept ON emp.deptno = dept.deptno
-WHERE UPPER(dept.loc) = 'DALLAS' OR LOWER(emp.job) = 'salesman'
-ORDER BY emp.ename;
-
+Write a query to display employee's name,
+department number and department name for all employees who
+work in Dallas or whose job title is salesman. Order
+the results by name (alphabetically).
+ */
+SELECT
+   emp.ename,
+   emp.deptno,
+   dept.dname
+FROM
+   emp
+   JOIN dept ON emp.deptno = dept.deptno
+WHERE
+   UPPER(dept.loc) = 'DALLAS'
+   OR LOWER(emp.job) = 'salesman'
+ORDER BY
+   emp.ename;
 
 --================== Varify =====================
 /*
@@ -58,9 +61,9 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT ename, deptno
-   ...> FROM emp
-   ...> WHERE deptno = 20 OR job = 'SALESMAN'
-   ...> ORDER BY ename;
+...> FROM emp
+...> WHERE deptno = 20 OR job = 'SALESMAN'
+...> ORDER BY ename;
 ename   deptno
 ------  ------
 ADAMS   20    
@@ -74,10 +77,10 @@ TURNER  30
 WARD    30    
 
 sqlite> SELECT emp.ename, emp.deptno, dept.dname
-   ...> FROM emp
-   ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE UPPER(dept.loc) = 'DALLAS' OR LOWER(emp.job) = 'salesman'
-   ...> ORDER BY emp.ename;
+...> FROM emp
+...> JOIN dept ON emp.deptno = dept.deptno
+...> WHERE UPPER(dept.loc) = 'DALLAS' OR LOWER(emp.job) = 'salesman'
+...> ORDER BY emp.ename;
 ename   deptno  dname   
 ------  ------  --------
 ADAMS   20      RESEARCH
@@ -89,6 +92,5 @@ SCOTT   20      RESEARCH
 SMITH   20      RESEARCH
 TURNER  30      SALES   
 WARD    30      SALES   
-*/
-
+ */
 -- End of file
