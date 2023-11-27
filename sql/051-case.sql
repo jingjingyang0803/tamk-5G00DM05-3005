@@ -1,33 +1,36 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 051-case.sql
-
 --================== Task ======================
 /*
-    5.1 Case 1
+5.1 Case 1
 
-        Write a query to change all the SALESMAN job
-        descriptions to SALES PERSON. Order the results by job
-        (alphabetically) and name (alphabetically).
+Write a query to change all the SALESMAN job
+descriptions to SALES PERSON. Order the results by job
+(alphabetically) and name (alphabetically).
 
-            Name       New Job Name
-            ---------- ------------
-            FORD       ANALYST
-            ..
-            ...
-            WARD       SALES PERSON
-*/
-
-
+Name       New Job Name
+---------- ------------
+FORD       ANALYST
+..
+...
+WARD       SALES PERSON
+ */
 UPDATE emp
-SET job = CASE
-    WHEN job = 'SALESMAN' THEN 'SALES PERSON'
-    ELSE job
-END;
-SELECT ename AS "Name", job AS "New Job Name"
-FROM emp
-ORDER BY "New Job Name", "Name";
+SET
+   job = CASE
+      WHEN job = 'SALESMAN' THEN 'SALES PERSON'
+      ELSE job
+   END;
 
+SELECT
+   ename AS "Name",
+   job AS "New Job Name"
+FROM
+   emp
+ORDER BY
+   "New Job Name",
+   "Name";
 
 --================== Varify =====================
 /*
@@ -49,7 +52,7 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT DISTINCT ename
-   ...> FROM emp;
+...> FROM emp;
 ename 
 ------
 SMITH 
@@ -68,13 +71,13 @@ FORD
 MILLER
 
 sqlite> UPDATE emp
-   ...> SET job = CASE
-   ...>     WHEN job = 'SALESMAN' THEN 'SALES PERSON'
-   ...>     ELSE job
-   ...> END;
+...> SET job = CASE
+...>     WHEN job = 'SALESMAN' THEN 'SALES PERSON'
+...>     ELSE job
+...> END;
 sqlite> SELECT ename AS "Name", job AS "New Job Name"
-   ...> FROM emp
-   ...> ORDER BY "New Job Name", "Name";
+...> FROM emp
+...> ORDER BY "New Job Name", "Name";
 Name    New Job Name
 ------  ------------
 FORD    ANALYST     
@@ -91,6 +94,5 @@ ALLEN   SALES PERSON
 MARTIN  SALES PERSON
 TURNER  SALES PERSON
 WARD    SALES PERSON
-*/
-
+ */
 -- End of file
