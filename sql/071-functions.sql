@@ -20,9 +20,9 @@
 */
 
 
-SELECT LOWER(ename) AS Name, LOWER(job) AS Job, sal AS Salary
+SELECT LOWER(ename) AS "Name", LOWER(job) AS "Job", sal AS "Salary"
 FROM emp
-ORDER BY Name, Job;
+ORDER BY "Name", "Job";
 
 
 --================== Varify =====================
@@ -33,9 +33,9 @@ jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
 SQLite version 3.39.5 2022-10-14 20:58:05
 Enter ".help" for usage hints.
 
-sqlite> SELECT LOWER(ename) AS Name, LOWER(job) AS Job, sal AS Salary
+sqlite> SELECT LOWER(ename) AS "Name", LOWER(job) AS "Job", sal AS "Salary"
    ...> FROM emp
-   ...> ORDER BY Name, Job;
+   ...> ORDER BY "Name", "Job";
 Name    Job        Salary
 ------  ---------  ------
 adams   clerk      1100  
