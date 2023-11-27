@@ -1,20 +1,20 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 025-where.sql
-
 --================== Task ======================
 /*
-    2.5 Where 5
+2.5 Where 5
 
-        Display the employee name and department number
-        of all employees in departments 10 and 30.
-*/
-
-
-SELECT ename, deptno
-FROM emp
-WHERE deptno IN (10, 30);
-
+Display the employee name and department number
+of all employees in departments 10 and 30.
+ */
+SELECT
+    ename,
+    deptno
+FROM
+    emp
+WHERE
+    deptno IN (10, 30);
 
 --================== Varify =====================
 /*
@@ -36,8 +36,8 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT ename, deptno
-   ...> FROM emp
-   ...> WHERE deptno IN (10, 30);
+...> FROM emp
+...> WHERE deptno IN (10, 30);
 ename   deptno
 ------  ------
 ALLEN   30    
@@ -49,6 +49,5 @@ KING    10
 TURNER  30    
 JAMES   30    
 MILLER  10 
-*/
-
+ */
 -- End of file
