@@ -1,26 +1,30 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 095-multiple-tables.sql
-
 --================== Task ======================
 /*
-    9.5 Multiple tables 5
+9.5 Multiple tables 5
 
-        Write a query to display the name, job,
-        department number and department name for all employees who:
-        work in *accounting* department and who earn more than 1000;
-        who work in *sales* department and earn more than 1000; and
-        who work in *operations* and earn more than 1000. Ignore
-        commission. Order the results alphabetically by name.
-*/
-
-
-SELECT ename, job, emp.deptno, dname
-FROM emp
-JOIN dept ON emp.deptno = dept.deptno
-WHERE LOWER(dname) IN ('accounting', 'sales', 'operations') AND sal > 1000
-ORDER BY ename;
-
+Write a query to display the name, job,
+department number and department name for all employees who:
+work in *accounting* department and who earn more than 1000;
+who work in *sales* department and earn more than 1000; and
+who work in *operations* and earn more than 1000. Ignore
+commission. Order the results alphabetically by name.
+ */
+SELECT
+   ename,
+   job,
+   emp.deptno,
+   dname
+FROM
+   emp
+   JOIN dept ON emp.deptno = dept.deptno
+WHERE
+   LOWER(dname) IN ('accounting', 'sales', 'operations')
+   AND sal > 1000
+ORDER BY
+   ename;
 
 --================== Varify =====================
 /*
@@ -60,9 +64,9 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT ename, job, deptno
-   ...> FROM emp
-   ...> WHERE deptno IN (10, 30, 40) AND sal > 1000
-   ...> ORDER BY ename;
+...> FROM emp
+...> WHERE deptno IN (10, 30, 40) AND sal > 1000
+...> ORDER BY ename;
 ename   job        deptno
 ------  ---------  ------
 ALLEN   SALESMAN   30    
@@ -75,10 +79,10 @@ TURNER  SALESMAN   30
 WARD    SALESMAN   30
 
 sqlite> SELECT ename, job, emp.deptno, dname
-   ...> FROM emp
-   ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE LOWER(dname) IN ('accounting', 'sales', 'operations') AND sal > 1000
-   ...> ORDER BY ename;
+...> FROM emp
+...> JOIN dept ON emp.deptno = dept.deptno
+...> WHERE LOWER(dname) IN ('accounting', 'sales', 'operations') AND sal > 1000
+...> ORDER BY ename;
 ename   job        deptno  dname     
 ------  ---------  ------  ----------
 ALLEN   SALESMAN   30      SALES     
@@ -89,6 +93,5 @@ MARTIN  SALESMAN   30      SALES
 MILLER  CLERK      10      ACCOUNTING
 TURNER  SALESMAN   30      SALES     
 WARD    SALESMAN   30      SALES       
-*/
-
+ */
 -- End of file
