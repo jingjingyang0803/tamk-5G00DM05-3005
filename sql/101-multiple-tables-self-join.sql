@@ -1,25 +1,29 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 101-multiple-tables-self-join.sql
-
 --================== Task ======================
 /*
-    10.1 Multiple tables and self join 1
+10.1 Multiple tables and self join 1
 
-        Display the manager's name and number, employee name,
-        number for who work under managers BLAKE, FORD or SCOTT.
-        Label the columns "Employee", "Emp#", "Manager" and "Mgr#".
-        Order the results alphabetically by "Manager" and "Employee"
-        columns.
-*/
-
-
-SELECT m.ename AS "Manager", m.empno AS "Mgr#", e.ename AS "Employee", e.empno AS "Emp#"
-FROM emp e
-JOIN emp m ON e.mgr = m.empno
-WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
-ORDER BY "Manager", "Employee";
-
+Display the manager's name and number, employee name,
+number for who work under managers BLAKE, FORD or SCOTT.
+Label the columns "Employee", "Emp#", "Manager" and "Mgr#".
+Order the results alphabetically by "Manager" and "Employee"
+columns.
+ */
+SELECT
+    m.ename AS "Manager",
+    m.empno AS "Mgr#",
+    e.ename AS "Employee",
+    e.empno AS "Emp#"
+FROM
+    emp e
+    JOIN emp m ON e.mgr = m.empno
+WHERE
+    UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
+ORDER BY
+    "Manager",
+    "Employee";
 
 --================== Varify =====================
 /*
@@ -47,10 +51,10 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT m.ename AS "Manager", m.empno AS "Mgr#", e.ename AS "Employee", e.empno AS "Emp#"
-   ...> FROM emp e
-   ...> JOIN emp m ON e.mgr = m.empno
-   ...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
-   ...> ORDER BY "Manager", "Employee";
+...> FROM emp e
+...> JOIN emp m ON e.mgr = m.empno
+...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
+...> ORDER BY "Manager", "Employee";
 Manager  Mgr#  Employee  Emp#
 -------  ----  --------  ----
 BLAKE    7698  ALLEN     7499
@@ -60,6 +64,5 @@ BLAKE    7698  TURNER    7844
 BLAKE    7698  WARD      7521
 FORD     7902  SMITH     7369
 SCOTT    7788  ADAMS     7876
-*/
-
+ */
 -- End of file
