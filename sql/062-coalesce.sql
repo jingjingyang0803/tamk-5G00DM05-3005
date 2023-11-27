@@ -17,20 +17,20 @@ SMITH    1600       408
 JAMES    1900       484
 ...
  */
+-- I think the sql below should make sense but the result differ from the desired ones(SMITH    1600       408) in the description:
 SELECT
     ename AS "Name",
-    (sal + COALESCE(comm, sal)) AS "Net Income",
+    (COALESCE(sal, 0) + COALESCE(comm, 0)) AS "Net Income",
     CAST(
-        ROUND(sal * 0.31 + COALESCE(comm, sal) * 0.20) AS INTEGER
+        ROUND(
+            COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20
+        ) AS INTEGER
     ) AS "Tax"
 FROM
     emp
 ORDER BY
     "Net Income";
 
--- ??? I can only get (SMITH    1600       408, JAMES    1900       484) by setting null comission same value as salary, 
--- but the results are not same as required then. 
--- is there updates of create.sql? Maybe some difference in the test.db.
 --================== Varify =====================
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
@@ -78,5 +78,28 @@ JONES   5950        1517
 SCOTT   6000        1530
 FORD    6000        1530
 KING    10000       2550
+
+sqlite> SELECT
+...>     ename AS "Name",
+...>     (COALESCE(sal, 0) + COALESCE(comm, 0)) AS "Net Income",
+...>     CAST(ROUND(COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20) AS INTEGER) AS "Tax"
+...> FROM emp
+...> ORDER BY "Net Income";
+Name    Net Income  Tax 
+------  ----------  ----
+SMITH   800         248 
+JAMES   950         295 
+ADAMS   1100        341 
+MILLER  1300        403 
+TURNER  1500        465 
+WARD    1750        488 
+ALLEN   1900        556 
+CLARK   2450        760 
+MARTIN  2650        668 
+BLAKE   2850        884 
+JONES   2975        922 
+SCOTT   3000        930 
+FORD    3000        930 
+KING    5000        1550
  */
 -- End of file
