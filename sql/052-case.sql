@@ -1,33 +1,41 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 052-case.sql
-
 --================== Task ======================
 /*
-    5.2 Case 2
+5.2 Case 2
 
-        Every employee in department 30 is entitled to commission as follows:
-        display 100 basic comission for everyone who haven't had it
-        previously and those who already earn commission, get 5%
-        increase. Other departments are not affected. Sort the results
-        by updated commission (lowest first) and name
-        (alphabetically). Display results for all employees:
+Every employee in department 30 is entitled to commission as follows:
+display 100 basic comission for everyone who haven't had it
+previously and those who already earn commission, get 5%
+increase. Other departments are not affected. Sort the results
+by updated commission (lowest first) and name
+(alphabetically). Display results for all employees:
 
-            ename comm
-            ----- ----
-*/
-
-
+ename comm
+----- ----
+ */
 UPDATE emp
-SET comm = CASE
-    WHEN deptno = 30 AND comm IS NOT NULL THEN comm * 1.05
-    WHEN deptno = 30 AND (comm IS NULL OR comm = 0) THEN 100
-    ELSE comm
-END;
-SELECT ename, comm
-FROM emp
-ORDER BY comm, ename;
+SET
+   comm = CASE
+      WHEN deptno = 30
+      AND comm IS NOT NULL THEN comm * 1.05
+      WHEN deptno = 30
+      AND (
+         comm IS NULL
+         OR comm = 0
+      ) THEN 100
+      ELSE comm
+   END;
 
+SELECT
+   ename,
+   comm
+FROM
+   emp
+ORDER BY
+   comm,
+   ename;
 
 --================== Varify =====================
 /*
@@ -55,7 +63,7 @@ empno  ename   job           mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK         7782  1982-01-23  1300  NULL  10 
 
 sqlite> SELECT * FROM emp 
-   ...> WHERE deptno = 30;
+...> WHERE deptno = 30;
 empno  ename   job       mgr   hiredate    sal   comm  deptno
 -----  ------  --------  ----  ----------  ----  ----  ------
 7499   ALLEN   SALESMAN  7698  1981-02-20  1600  300   30    
@@ -66,14 +74,14 @@ empno  ename   job       mgr   hiredate    sal   comm  deptno
 7900   JAMES   CLERK     7698  1981-12-03  950   NULL  30    
 
 sqlite> UPDATE emp
-   ...> SET comm = CASE
-   ...>     WHEN deptno = 30 AND comm IS NOT NULL THEN comm * 1.05
-   ...>     WHEN deptno = 30 AND (comm IS NULL OR comm = 0) THEN 100
-   ...>     ELSE comm
-   ...> END;
+...> SET comm = CASE
+...>     WHEN deptno = 30 AND comm IS NOT NULL THEN comm * 1.05
+...>     WHEN deptno = 30 AND (comm IS NULL OR comm = 0) THEN 100
+...>     ELSE comm
+...> END;
 sqlite> SELECT ename, comm
-   ...> FROM emp
-   ...> ORDER BY comm, ename;
+...> FROM emp
+...> ORDER BY comm, ename;
 ename   comm
 ------  ----
 ADAMS   NULL
@@ -90,6 +98,5 @@ JAMES   100
 ALLEN   315 
 WARD    525 
 MARTIN  1470
-*/
-
+ */
 -- End of file
