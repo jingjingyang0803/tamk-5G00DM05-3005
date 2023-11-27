@@ -13,7 +13,7 @@
 
 SELECT COUNT(DISTINCT empno) AS "count of managers"
 FROM emp
-WHERE job IN ('MANAGER', 'PRESIDENT');
+WHERE LOWER(job) IN ('manager', 'president');
 
 
 --================== Varify =====================
@@ -55,7 +55,7 @@ NULL
 
 sqlite> SELECT COUNT(DISTINCT empno) AS "count of managers"
    ...> FROM emp
-   ...> WHERE job IN ('MANAGER', 'PRESIDENT');
+   ...> WHERE LOWER(job) IN ('manager', 'president');
 count of managers
 -----------------
 4   
