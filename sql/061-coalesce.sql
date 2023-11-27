@@ -1,28 +1,31 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 061-coalesce.sql
-
 --================== Task ======================
 /*
-    6.1 Coalesce 1
+6.1 Coalesce 1
 
-        Display report for employees in department 30. Display zero
-        for all who do not earn comission. Sort the results name
-        (alphabetically) and commission (lowest first).
+Display report for employees in department 30. Display zero
+for all who do not earn comission. Sort the results name
+(alphabetically) and commission (lowest first).
 
-            deptno  ename    comm
-            ------  -----    ----
-            30      ALLEN    300
-            30      BLAKE    0
-            ...
-*/
-
-
-SELECT deptno, ename, COALESCE(comm, 0) AS comm
-FROM emp
-WHERE deptno = 30
-ORDER BY ename, comm;
-
+deptno  ename    comm
+------  -----    ----
+30      ALLEN    300
+30      BLAKE    0
+...
+ */
+SELECT
+   deptno,
+   ename,
+   COALESCE(comm, 0) AS comm
+FROM
+   emp
+WHERE
+   deptno = 30
+ORDER BY
+   ename,
+   comm;
 
 --================== Varify =====================
 /*
@@ -33,7 +36,7 @@ SQLite version 3.39.5 2022-10-14 20:58:05
 Enter ".help" for usage hints.
 
 sqlite> SELECT * FROM emp 
-   ...> WHERE deptno = 30;
+...> WHERE deptno = 30;
 empno  ename   job       mgr   hiredate    sal   comm  deptno
 -----  ------  --------  ----  ----------  ----  ----  ------
 7499   ALLEN   SALESMAN  7698  1981-02-20  1600  300   30    
@@ -44,9 +47,9 @@ empno  ename   job       mgr   hiredate    sal   comm  deptno
 7900   JAMES   CLERK     7698  1981-12-03  950   NULL  30    
 
 sqlite> SELECT deptno, ename, COALESCE(comm, 0) AS comm
-   ...> FROM emp
-   ...> WHERE deptno = 30
-   ...> ORDER BY ename, comm;
+...> FROM emp
+...> WHERE deptno = 30
+...> ORDER BY ename, comm;
 deptno  ename   comm
 ------  ------  ----
 30      ALLEN   300 
@@ -55,6 +58,5 @@ deptno  ename   comm
 30      MARTIN  1400
 30      TURNER  0   
 30      WARD    500 
-*/
-
+ */
 -- End of file
