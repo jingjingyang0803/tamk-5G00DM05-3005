@@ -1,26 +1,36 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 031-order-by.sql
-
 --================== Task ======================
 /*
-    3.1 Order by 1
+3.1 Order by 1
 
-        1. Display employee name, salary and new column where each
-        salary is raised by 15%. Display only employees that work
-        under manager blake. Sort the results by "new salary" (lowest
-        first) and employee name (alphabetically).
+1. Display employee name, salary and new column where each
+salary is raised by 15%. Display only employees that work
+under manager blake. Sort the results by "new salary" (lowest
+first) and employee name (alphabetically).
 
-            ename sal new salary
-            ----- --- ----------
-*/
-
-
-SELECT ename, sal, sal*1.15 AS "new salary"
-FROM emp
-WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
-ORDER BY "new salary" ASC, ename ASC;
-
+ename sal new salary
+----- --- ----------
+ */
+SELECT
+    ename,
+    sal,
+    sal * 1.15 AS "new salary"
+FROM
+    emp
+WHERE
+    mgr = (
+        SELECT
+            empno
+        FROM
+            emp
+        WHERE
+            LOWER(ename) = 'blake'
+    )
+ORDER BY
+    "new salary" ASC,
+    ename ASC;
 
 --================== Varify =====================
 /*
@@ -42,9 +52,9 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT ename, sal, sal*1.15 AS "new salary"
-   ...> FROM emp
-   ...> WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
-   ...> ORDER BY "new salary" ASC, ename ASC;
+...> FROM emp
+...> WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
+...> ORDER BY "new salary" ASC, ename ASC;
 ename   sal   new salary
 ------  ----  ----------
 JAMES   950   1092.5    
@@ -52,6 +62,5 @@ MARTIN  1250  1437.5
 WARD    1250  1437.5    
 TURNER  1500  1725.0    
 ALLEN   1600  1840.0 
-*/
-
+ */
 -- End of file
