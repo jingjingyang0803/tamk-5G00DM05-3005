@@ -16,10 +16,10 @@
 */
 
 
-SELECT ename, sal, sal*1.15 AS 'new salary'
+SELECT ename, sal, sal*1.15 AS "new salary"
 FROM emp
 WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
-ORDER BY sal*1.15 ASC, ename ASC;
+ORDER BY "new salary" ASC, ename ASC;
 
 
 --================== Varify =====================
@@ -41,10 +41,10 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 
-sqlite> SELECT ename, sal, sal*1.15 AS 'new salary'
+sqlite> SELECT ename, sal, sal*1.15 AS "new salary"
    ...> FROM emp
    ...> WHERE mgr = (SELECT empno FROM emp WHERE LOWER(ename) = 'blake')
-   ...> ORDER BY sal*1.15 ASC, ename ASC;
+   ...> ORDER BY "new salary" ASC, ename ASC;
 ename   sal   new salary
 ------  ----  ----------
 JAMES   950   1092.5    
