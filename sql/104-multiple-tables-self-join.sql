@@ -1,28 +1,41 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 104-multiple-tables-self-join.sql
-
 --================== Task ======================
 /*
-    10.4 Multiple tables and self join 4
+10.4 Multiple tables and self join 4
 
-        Display location and department name for all employees
-        whose manager is either BLAKE, FORD or JONES and where manager
-        earns more than salary in grade 3. Order the results
-        alphabetically by "Location", "Manager" and "Employee".
+Display location and department name for all employees
+whose manager is either BLAKE, FORD or JONES and where manager
+earns more than salary in grade 3. Order the results
+alphabetically by "Location", "Manager" and "Employee".
 
-              Location   Department   Employee   Manager
-              --------   ----------   --------   --------
-*/
-
-
-SELECT d.loc AS "Location", d.dname AS "Department", e.ename AS "Employee", m.ename AS "Manager"
-FROM emp e
-JOIN emp m ON e.mgr = m.empno
-JOIN dept d ON e.deptno = d.deptno
-WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
-ORDER BY "Location", "Manager", "Employee";
-
+Location   Department   Employee   Manager
+--------   ----------   --------   --------
+ */
+SELECT
+   d.loc AS "Location",
+   d.dname AS "Department",
+   e.ename AS "Employee",
+   m.ename AS "Manager"
+FROM
+   emp e
+   JOIN emp m ON e.mgr = m.empno
+   JOIN dept d ON e.deptno = d.deptno
+WHERE
+   UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES')
+   AND m.sal > (
+      SELECT
+         hisal
+      FROM
+         salgrade
+      WHERE
+         grade = 3
+   )
+ORDER BY
+   "Location",
+   "Manager",
+   "Employee";
 
 --================== Varify =====================
 /*
@@ -67,11 +80,11 @@ grade  losal  hisal
 5      3001   9999 
 
 sqlite> SELECT d.loc AS "Location", d.dname AS "Department", e.ename AS "Employee", m.ename AS "Manager"
-   ...> FROM emp e
-   ...> JOIN emp m ON e.mgr = m.empno
-   ...> JOIN dept d ON e.deptno = d.deptno
-   ...> WHERE m.ename IN ('BLAKE', 'FORD', 'JONES') AND m.sal > 2000
-   ...> ORDER BY "Location", "Manager", "Employee";
+...> FROM emp e
+...> JOIN emp m ON e.mgr = m.empno
+...> JOIN dept d ON e.deptno = d.deptno
+...> WHERE m.ename IN ('BLAKE', 'FORD', 'JONES') AND m.sal > 2000
+...> ORDER BY "Location", "Manager", "Employee";
 Location  Department  Employee  Manager
 --------  ----------  --------  -------
 CHICAGO   SALES       ALLEN     BLAKE  
@@ -84,11 +97,11 @@ DALLAS    RESEARCH    FORD      JONES
 DALLAS    RESEARCH    SCOTT     JONES
 
 sqlite> SELECT d.loc AS "Location", d.dname AS "Department", e.ename AS "Employee", m.ename AS "Manager"
-   ...> FROM emp e
-   ...> JOIN emp m ON e.mgr = m.empno
-   ...> JOIN dept d ON e.deptno = d.deptno
-   ...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
-   ...> ORDER BY "Location", "Manager", "Employee";
+...> FROM emp e
+...> JOIN emp m ON e.mgr = m.empno
+...> JOIN dept d ON e.deptno = d.deptno
+...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
+...> ORDER BY "Location", "Manager", "Employee";
 Location  Department  Employee  Manager
 --------  ----------  --------  -------
 CHICAGO   SALES       ALLEN     BLAKE  
@@ -99,6 +112,5 @@ CHICAGO   SALES       WARD      BLAKE
 DALLAS    RESEARCH    SMITH     FORD   
 DALLAS    RESEARCH    FORD      JONES  
 DALLAS    RESEARCH    SCOTT     JONES 
-*/
-
+ */
 -- End of file
