@@ -13,7 +13,7 @@
 
 SELECT ename, sal, comm
 FROM emp
-WHERE comm IS NOT NULL AND comm != 0;
+WHERE comm IS NOT NULL AND comm > 0;
 
 
 --================== Varify =====================
@@ -47,7 +47,7 @@ NULL
 
 sqlite> SELECT ename, sal, comm
    ...> FROM emp
-   ...> WHERE comm IS NOT NULL AND comm != 0;
+   ...> WHERE comm IS NOT NULL AND comm > 0;
 ename   sal   comm
 ------  ----  ----
 ALLEN   1600  300 
