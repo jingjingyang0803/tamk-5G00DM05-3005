@@ -1,20 +1,19 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 081-group-functions.sql
-
 --================== Task ======================
 /*
-    8.1 Group functions 1
+8.1 Group functions 1
 
-        Display number of managers, including the president,
-        in the whole company. Label the column "count of mangers".
-*/
-
-
-SELECT COUNT(DISTINCT empno) AS "count of managers"
-FROM emp
-WHERE LOWER(job) IN ('manager', 'president');
-
+Display number of managers, including the president,
+in the whole company. Label the column "count of mangers".
+ */
+SELECT
+   COUNT(DISTINCT empno) AS "count of managers"
+FROM
+   emp
+WHERE
+   LOWER(job) IN ('manager', 'president');
 
 --================== Varify =====================
 /*
@@ -42,7 +41,7 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT DISTINCT mgr
-   ...> FROM emp;
+...> FROM emp;
 mgr 
 ----
 7902
@@ -54,11 +53,10 @@ NULL
 7782
 
 sqlite> SELECT COUNT(DISTINCT empno) AS "count of managers"
-   ...> FROM emp
-   ...> WHERE LOWER(job) IN ('manager', 'president');
+...> FROM emp
+...> WHERE LOWER(job) IN ('manager', 'president');
 count of managers
 -----------------
 4   
-*/
-
+ */
 -- End of file
