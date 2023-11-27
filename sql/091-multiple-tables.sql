@@ -16,7 +16,7 @@
 SELECT emp.ename, emp.deptno, dept.dname
 FROM emp
 JOIN dept ON emp.deptno = dept.deptno
-WHERE dept.loc = 'DALLAS' OR emp.job = 'SALESMAN'
+WHERE UPPER(dept.loc) = 'DALLAS' OR LOWER(emp.job) = 'salesman'
 ORDER BY emp.ename;
 
 
@@ -76,7 +76,7 @@ WARD    30
 sqlite> SELECT emp.ename, emp.deptno, dept.dname
    ...> FROM emp
    ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE dept.loc = 'DALLAS' OR emp.job = 'SALESMAN'
+   ...> WHERE UPPER(dept.loc) = 'DALLAS' OR LOWER(emp.job) = 'salesman'
    ...> ORDER BY emp.ename;
 ename   deptno  dname   
 ------  ------  --------
