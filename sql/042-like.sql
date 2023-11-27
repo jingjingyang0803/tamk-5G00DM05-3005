@@ -30,6 +30,10 @@ FROM emp
 WHERE ename REGEXP '^.[aeiouyAEIOUY]' AND (job LIKE '%sales%' OR job LIKE '%analysis%')
 ORDER BY deptno ASC, ename ASC;
 
+-- In SQLite, the LIKE operator is case-insensitive by default. 
+-- This means it does not differentiate between upper and lower case.
+-- so why we need to use: LOWER(job) LIKE '%sales%'?
+
 
 --================== Alternative Solution =====================
 /*
