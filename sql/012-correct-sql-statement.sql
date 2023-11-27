@@ -1,22 +1,22 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 012-correct-sql-statement.sql
-
 -----------------------Task---------------------
 /*
-        There are errors in this statement. Identify them all and
-        correct the statement and run it.
+There are errors in this statement. Identify them all and
+correct the statement and run it.
 
-                SELECT  empno, ename
-                        salary x 12 ANNUAL SALARY
-                        emp
-                ;
-*/
-
-
-SELECT empno, ename, sal * 12 AS "ANNUAL SALARY"
-FROM emp;
-
+SELECT  empno, ename
+salary x 12 ANNUAL SALARY
+emp
+;
+ */
+SELECT
+        empno,
+        ename,
+        sal * 12 AS "ANNUAL SALARY"
+FROM
+        emp;
 
 -------------------------Varify------------------
 /*
@@ -36,7 +36,7 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 sqlite> SELECT empno, ename, sal * 12 AS "ANNUAL SALARY"
-   ...> FROM emp;
+...> FROM emp;
 empno  ename   ANNUAL SALARY
 -----  ------  -------------
 7369   SMITH   9600         
@@ -53,6 +53,5 @@ empno  ename   ANNUAL SALARY
 7900   JAMES   11400        
 7902   FORD    36000        
 7934   MILLER  15600  
-*/
-
+ */
 -- End of file
