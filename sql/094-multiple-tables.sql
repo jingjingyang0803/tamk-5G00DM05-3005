@@ -1,24 +1,27 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 094-multiple-tables.sql
-
 --================== Task ======================
 /*
-    9.4 Multiple tables 4
+9.4 Multiple tables 4
 
-        Display the employee name and department name for all
-        employees who have an `a' character in their name and who earn
-        more than 1100 but less or equal than 2200. Order the results
-        alphabetically by name.
-*/
-
-
-SELECT ename, dname
-FROM emp
-JOIN dept ON emp.deptno = dept.deptno
-WHERE ename LIKE "%a%" AND sal > 1100 AND sal <= 2200
-ORDER BY ename;
-
+Display the employee name and department name for all
+employees who have an `a' character in their name and who earn
+more than 1100 but less or equal than 2200. Order the results
+alphabetically by name.
+ */
+SELECT
+    ename,
+    dname
+FROM
+    emp
+    JOIN dept ON emp.deptno = dept.deptno
+WHERE
+    ename LIKE "%a%"
+    AND sal > 1100
+    AND sal <= 2200
+ORDER BY
+    ename;
 
 --================== Varify =====================
 /*
@@ -58,15 +61,14 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT ename, dname
-   ...> FROM emp
-   ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE ename LIKE "%a%" AND sal > 1100 AND sal <= 2200
-   ...> ORDER BY ename;
+...> FROM emp
+...> JOIN dept ON emp.deptno = dept.deptno
+...> WHERE ename LIKE "%a%" AND sal > 1100 AND sal <= 2200
+...> ORDER BY ename;
 ename   dname
 ------  -----
 ALLEN   SALES
 MARTIN  SALES
 WARD    SALES
-*/
-
+ */
 -- End of file
