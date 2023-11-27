@@ -1,23 +1,23 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 092-multiple-tables.sql
-
 --================== Task ======================
 /*
-    9.2 Multiple tables 2
+9.2 Multiple tables 2
 
-        Create a unique listing of all jobs in company's
-        branches in Boston or New York. Order
-        the results alphabetically.
-*/
-
-
-SELECT DISTINCT emp.job
-FROM emp
-JOIN dept ON emp.deptno = dept.deptno
-WHERE UPPER(dept.loc) IN ("BOSTON", "NEW YORK")
-ORDER BY emp.job;
-
+Create a unique listing of all jobs in company's
+branches in Boston or New York. Order
+the results alphabetically.
+ */
+SELECT DISTINCT
+   emp.job
+FROM
+   emp
+   JOIN dept ON emp.deptno = dept.deptno
+WHERE
+   UPPER(dept.loc) IN ('BOSTON', 'NEW YORK')
+ORDER BY
+   emp.job;
 
 --================== Varify =====================
 /*
@@ -57,9 +57,9 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT DISTINCT job
-   ...> FROM emp
-   ...> WHERE deptno IN (10, 40)
-   ...> ORDER BY job;
+...> FROM emp
+...> WHERE deptno IN (10, 40)
+...> ORDER BY job;
 job      
 ---------
 CLERK    
@@ -67,15 +67,14 @@ MANAGER
 PRESIDENT
 
 sqlite> SELECT DISTINCT emp.job
-   ...> FROM emp
-   ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE UPPER(dept.loc) IN ("BOSTON", "NEW YORK")
-   ...> ORDER BY emp.job;
+...> FROM emp
+...> JOIN dept ON emp.deptno = dept.deptno
+...> WHERE UPPER(dept.loc) IN ('BOSTON', 'NEW YORK')
+...> ORDER BY emp.job;
 job      
 ---------
 CLERK    
 MANAGER  
 PRESIDENT
-*/
-
+ */
 -- End of file
