@@ -1,23 +1,26 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 093-multiple-tables.sql
-
 --================== Task ======================
 /*
-    9.3 Multiple tables 3
+9.3 Multiple tables 3
 
-        Write a query to display the employee name,
-        department name and location of all employees who earn a
-        commission. Order the results by name (alphabetically).
-*/
-
-
-SELECT ename, dname, comm
-FROM emp
-JOIN dept ON emp.deptno = dept.deptno
-WHERE comm IS NOT NULL AND comm > 0
-ORDER BY ename;
-
+Write a query to display the employee name,
+department name and location of all employees who earn a
+commission. Order the results by name (alphabetically).
+ */
+SELECT
+    ename,
+    dname,
+    comm
+FROM
+    emp
+    JOIN dept ON emp.deptno = dept.deptno
+WHERE
+    comm IS NOT NULL
+    AND comm > 0
+ORDER BY
+    ename;
 
 --================== Varify =====================
 /*
@@ -57,15 +60,14 @@ empno  ename   job        mgr   hiredate    sal   comm  deptno
 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10  
 
 sqlite> SELECT ename, dname, comm
-   ...> FROM emp
-   ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE comm IS NOT NULL AND comm > 0
-   ...> ORDER BY ename;
+...> FROM emp
+...> JOIN dept ON emp.deptno = dept.deptno
+...> WHERE comm IS NOT NULL AND comm > 0
+...> ORDER BY ename;
 ename   dname  comm
 ------  -----  ----
 ALLEN   SALES  300 
 MARTIN  SALES  1400
 WARD    SALES  500
-*/
-
+ */
 -- End of file
