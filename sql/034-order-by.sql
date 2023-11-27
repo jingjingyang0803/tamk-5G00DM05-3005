@@ -18,10 +18,10 @@
 */
 
 
-SELECT ename AS 'Employee', sal AS 'Monthly Salary', sal*1.1 AS 'Sal 10%', comm AS 'Comm'
+SELECT ename AS "Employee", sal AS "Monthly Salary", sal*1.1 AS "Sal 10%", comm AS "Comm"
 FROM emp
 WHERE comm > sal*1.1
-ORDER BY Employee ASC, `Monthly Salary` ASC, Comm ASC;
+ORDER BY "Employee" ASC, "Monthly Salary" ASC, "Comm" ASC;
 
 
 --================== Varify =====================
@@ -43,10 +43,10 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 
-sqlite> SELECT ename AS 'Employee', sal AS 'Monthly Salary', sal*1.1 AS 'Sal 10%', comm AS 'Comm'
+sqlite> SELECT ename AS "Employee", sal AS "Monthly Salary", sal*1.1 AS "Sal 10%", comm AS "Comm"
    ...> FROM emp
    ...> WHERE comm > sal*1.1
-   ...> ORDER BY Employee ASC, `Monthly Salary` ASC, Comm ASC;
+   ...> ORDER BY "Employee" ASC, "Monthly Salary" ASC, "Comm" ASC;
 Employee  Monthly Salary  Sal 10%  Comm
 --------  --------------  -------  ----
 MARTIN    1250            1375.0   1400
