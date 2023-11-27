@@ -1,20 +1,20 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 021-where.sql
-
 --================== Task ======================
 /*
-    2.1 Where 1
+2.1 Where 1
 
-        Create a query to display the employee name and salary
-        of employees earning more than 2850.
-*/
-
-
-SELECT ename, sal
-FROM emp
-WHERE sal > 2850;
-
+Create a query to display the employee name and salary
+of employees earning more than 2850.
+ */
+SELECT
+    ename,
+    sal
+FROM
+    emp
+WHERE
+    sal > 2850;
 
 --================== Varify =====================
 /*
@@ -34,14 +34,13 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 sqlite> SELECT ename, sal
-   ...> FROM emp
-   ...> WHERE sal > 2850;
+...> FROM emp
+...> WHERE sal > 2850;
 ename  sal 
 -----  ----
 JONES  2975
 SCOTT  3000
 KING   5000
 FORD   3000
-*/
-
+ */
 -- End of file
