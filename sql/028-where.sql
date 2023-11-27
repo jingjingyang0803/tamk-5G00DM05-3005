@@ -1,20 +1,22 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 028-where.sql
-
 --================== Task ======================
 /*
-    2.8 Where 8
+2.8 Where 8
 
-        [NULL value handling] Display the employee name, salary,
-        and commission for all employees who earn commissions.
-*/
-
-
-SELECT ename, sal, comm
-FROM emp
-WHERE comm IS NOT NULL AND comm > 0;
-
+[NULL value handling] Display the employee name, salary,
+and commission for all employees who earn commissions.
+ */
+SELECT
+   ename,
+   sal,
+   comm
+FROM
+   emp
+WHERE
+   comm IS NOT NULL
+   AND comm > 0;
 
 --================== Varify =====================
 /*
@@ -36,7 +38,7 @@ cid  name      type          notnull  dflt_value  pk
 7    deptno    INTEGER       1        NULL        0 
 
 sqlite> SELECT DISTINCT comm
-   ...> FROM emp;
+...> FROM emp;
 comm
 ----
 NULL
@@ -46,13 +48,12 @@ NULL
 0   
 
 sqlite> SELECT ename, sal, comm
-   ...> FROM emp
-   ...> WHERE comm IS NOT NULL AND comm > 0;
+...> FROM emp
+...> WHERE comm IS NOT NULL AND comm > 0;
 ename   sal   comm
 ------  ----  ----
 ALLEN   1600  300 
 WARD    1250  500 
 MARTIN  1250  1400
-*/
-
+ */
 -- End of file
