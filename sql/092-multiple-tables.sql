@@ -15,7 +15,7 @@
 SELECT DISTINCT emp.job
 FROM emp
 JOIN dept ON emp.deptno = dept.deptno
-WHERE dept.loc IN ("BOSTON", "NEW YORK")
+WHERE UPPER(dept.loc) IN ("BOSTON", "NEW YORK")
 ORDER BY emp.job;
 
 
@@ -69,7 +69,7 @@ PRESIDENT
 sqlite> SELECT DISTINCT emp.job
    ...> FROM emp
    ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE dept.loc IN ("BOSTON", "NEW YORK")
+   ...> WHERE UPPER(dept.loc) IN ("BOSTON", "NEW YORK")
    ...> ORDER BY emp.job;
 job      
 ---------
