@@ -20,7 +20,7 @@ SELECT d.loc AS "Location", d.dname AS "Department", e.ename AS "Employee", m.en
 FROM emp e
 JOIN emp m ON e.mgr = m.empno
 JOIN dept d ON e.deptno = d.deptno
-WHERE m.ename IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
+WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
 ORDER BY "Location", "Manager", "Employee";
 
 
@@ -87,7 +87,7 @@ sqlite> SELECT d.loc AS "Location", d.dname AS "Department", e.ename AS "Employe
    ...> FROM emp e
    ...> JOIN emp m ON e.mgr = m.empno
    ...> JOIN dept d ON e.deptno = d.deptno
-   ...> WHERE m.ename IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
+   ...> WHERE UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES') AND m.sal > (SELECT hisal FROM salgrade WHERE grade = 3)
    ...> ORDER BY "Location", "Manager", "Employee";
 Location  Department  Employee  Manager
 --------  ----------  --------  -------
