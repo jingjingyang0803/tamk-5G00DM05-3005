@@ -1,20 +1,20 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 022-where.sql
-
 --================== Task ======================
 /*
-    2.2 Where 2
+2.2 Where 2
 
-        Create a query to display the employee name and
-        department number with employee number 7566.
-*/
-
-
-SELECT ename, deptno
-FROM emp
-WHERE empno = 7566;
-
+Create a query to display the employee name and
+department number with employee number 7566.
+ */
+SELECT
+    ename,
+    deptno
+FROM
+    emp
+WHERE
+    empno = 7566;
 
 --================== Varify =====================
 /*
@@ -34,11 +34,10 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 sqlite> SELECT ename, deptno
-   ...> FROM emp
-   ...> WHERE empno = 7566;
+...> FROM emp
+...> WHERE empno = 7566;
 ename  deptno
 -----  ------
 JONES  20
-*/
-
+ */
 -- End of file
