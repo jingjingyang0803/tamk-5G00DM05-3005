@@ -18,7 +18,7 @@
 SELECT ename, job, emp.deptno, dname
 FROM emp
 JOIN dept ON emp.deptno = dept.deptno
-WHERE dname IN ('ACCOUNTING', 'SALES', 'OPERATIONS') AND sal > 1000
+WHERE LOWER(dname) IN ('accounting', 'sales', 'operations') AND sal > 1000
 ORDER BY ename;
 
 
@@ -77,7 +77,7 @@ WARD    SALESMAN   30
 sqlite> SELECT ename, job, emp.deptno, dname
    ...> FROM emp
    ...> JOIN dept ON emp.deptno = dept.deptno
-   ...> WHERE dname IN ('ACCOUNTING', 'SALES', 'OPERATIONS') AND sal > 1000
+   ...> WHERE LOWER(dname) IN ('accounting', 'sales', 'operations') AND sal > 1000
    ...> ORDER BY ename;
 ename   job        deptno  dname     
 ------  ---------  ------  ----------
