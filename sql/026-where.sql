@@ -12,7 +12,7 @@
 */
 
 
-SELECT ename AS 'Employee', sal AS 'Monthly Salary'
+SELECT ename AS "Employee", sal AS "Monthly Salary"
 FROM emp
 WHERE sal > 1500 AND deptno IN (10, 30);
 
@@ -36,7 +36,7 @@ cid  name      type          notnull  dflt_value  pk
 6    comm      NUMERIC(7,2)  0        NULL        0 
 7    deptno    INTEGER       1        NULL        0 
 
-sqlite> SELECT ename AS 'Employee', sal AS 'Monthly Salary'
+sqlite> SELECT ename AS "Employee", sal AS "Monthly Salary"
    ...> FROM emp
    ...> WHERE sal > 1500 AND deptno IN (10, 30);
 Employee  Monthly Salary
