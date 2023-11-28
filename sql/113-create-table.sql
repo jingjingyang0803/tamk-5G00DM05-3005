@@ -26,7 +26,7 @@ CREATE TABLE
         time_of_reading TIMESTAMP,
         high DECIMAL,
         low DECIMAL,
-        sig CHAR(2),
+        sig CHARACTER(2),
         comment VARCHAR(2000)
     );
 
