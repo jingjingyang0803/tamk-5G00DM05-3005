@@ -19,13 +19,13 @@ SELECT
     e1.ename AS "Employee",
     e2.ename AS "Colleague"
 FROM
-    emp e1
-    JOIN emp e2 ON e1.deptno = e2.deptno
+    emp AS e1
+    JOIN emp AS e2 ON e1.deptno = e2.deptno
     AND e1.empno <> e2.empno
 ORDER BY
-    "Dept",
-    "Employee",
-    "Colleague";
+    "Dept" ASC,
+    "Employee" ASC,
+    "Colleague" ASC;
 
 
 --================== Varify =====================
