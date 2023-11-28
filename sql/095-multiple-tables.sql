@@ -16,18 +16,18 @@
 
 
 SELECT
-   ename,
-   job,
+   emp.ename,
+   emp.job,
    emp.deptno,
-   dname
+   dept.dname
 FROM
    emp
    JOIN dept ON emp.deptno = dept.deptno
 WHERE
-   LOWER(dname) IN ('accounting', 'sales', 'operations')
-   AND sal > 1000
+   LOWER(dept.dname) IN ('accounting', 'sales', 'operations')
+   AND emp.sal > 1000
 ORDER BY
-   ename;
+   ename ASC;
 
 --================== Varify =====================
 -- /*
