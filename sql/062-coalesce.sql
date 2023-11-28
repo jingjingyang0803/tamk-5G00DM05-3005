@@ -22,8 +22,8 @@
 
 SELECT
     ename AS "Name",
-    (COALESCE(sal, 0) + COALESCE(comm, 0)) AS "Net Income",
-    CAST(ROUND(COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20) AS INTEGER) AS "Tax"
+    COALESCE(sal, 0) * 0.69 + COALESCE(comm, 0) * 0.80 AS "Net Income",
+    COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20 AS "Tax"
 FROM
     emp
 ORDER BY
@@ -100,6 +100,31 @@ ORDER BY
 -- SCOTT   3000        930 
 -- FORD    3000        930 
 -- KING    5000        1550
+-- 
+-- sqlite> SELECT
+--     ename AS "Name",
+--     COALESCE(sal, 0) * 0.69 + COALESCE(comm, 0) * 0.80 AS "Net Income",
+--     COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20 AS "Tax"
+-- FROM
+--     emp
+-- ORDER BY
+--     "Net Income";
+-- Name    Net Income  Tax   
+-- ------  ----------  ------
+-- SMITH   552.0       248.0 
+-- JAMES   655.5       294.5 
+-- ADAMS   759.0       341.0 
+-- MILLER  897.0       403.0 
+-- TURNER  1035.0      465.0 
+-- WARD    1262.5      487.5 
+-- ALLEN   1344.0      556.0 
+-- CLARK   1690.5      759.5 
+-- BLAKE   1966.5      883.5 
+-- MARTIN  1982.5      667.5 
+-- JONES   2052.75     922.25
+-- SCOTT   2070.0      930.0 
+-- FORD    2070.0      930.0 
+-- KING    3450.0      1550.0
 -- */
 
 -- End of file
