@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 026-where.sql
+
 --================== Task ======================
 /*
 2.6 Where 6
@@ -8,7 +9,9 @@
 Display the employee name and salary of employees whose
 salary is more than 1500 and are in department 10 or 30. Label
 the columns "Employee" and "Monthly Salary".
- */
+*/
+
+
 SELECT
     ename AS "Employee",
     sal AS "Monthly Salary"
@@ -17,6 +20,7 @@ FROM
 WHERE
     sal > 1500
     AND deptno IN (10, 30);
+
 
 --================== Varify =====================
 /*
@@ -46,5 +50,6 @@ ALLEN     1600
 BLAKE     2850          
 CLARK     2450          
 KING      5000 
- */
+*/
+
 -- End of file
