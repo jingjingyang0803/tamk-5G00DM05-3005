@@ -33,8 +33,8 @@ FROM
 WHERE
    ename REGEXP '^.[aeiouyAEIOUY]'
    AND (
-      job LIKE '%sales%'
-      OR job LIKE '%analysis%'
+      LOWER(job) LIKE '%sales%'
+      OR LOWER(job) LIKE '%analysis%'
    )
 ORDER BY
    deptno ASC,
