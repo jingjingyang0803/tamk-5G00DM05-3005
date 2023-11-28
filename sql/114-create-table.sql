@@ -22,7 +22,7 @@ CREATE TABLE
         id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         item VARCHAR(255),
         worth INTEGER,
-        comment TEXT
+        comment String
     );
 
 
