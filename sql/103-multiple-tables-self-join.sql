@@ -2,12 +2,15 @@
 -- Date: 2023-11-15
 -- File: 103-multiple-tables-self-join.sql
 --================== Task ======================
+
 /*
 10.3 Multiple tables and self join 3
 
 Display all employee names who earn more than their managers.
 Ignore commission. Order the results alphabetically.
- */
+*/
+
+
 SELECT
    e.ename
 FROM
@@ -17,6 +20,7 @@ WHERE
    e.sal > m.sal
 ORDER BY
    e.ename;
+
 
 --================== Varify =====================
 /*
@@ -72,5 +76,6 @@ BLAKE     2850             KING     5000
 JONES     2975             KING     5000          
 SCOTT     3000             JONES    2975          
 FORD      3000             JONES    2975 
- */
+*/
+
 -- End of file
