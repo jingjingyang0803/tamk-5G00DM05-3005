@@ -25,8 +25,8 @@ SELECT
 FROM
     emp
 ORDER BY
-    ename,
-    "new salary";
+    ename ASC,
+    "new salary" ASC;
 
 
 --================== Varify =====================
