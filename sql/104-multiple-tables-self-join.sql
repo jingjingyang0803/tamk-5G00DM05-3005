@@ -25,14 +25,15 @@ FROM
    emp AS e
    JOIN emp AS m ON e.mgr = m.empno
    JOIN dept AS d ON e.deptno = d.deptno
-   JOIN salgrade AS s ON m.sal > s.hisal AND s.grade = 3
+   JOIN salgrade AS s ON m.sal BETWEEN s.losal AND s.hisal
 WHERE
    UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES')
+   AND s.grade > 3
 ORDER BY
    "Location" ASC,
    "Manager" ASC,
    "Employee" ASC;
-
+   
 
 --================== Varify =====================
 -- /*
