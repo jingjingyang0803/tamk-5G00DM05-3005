@@ -25,8 +25,8 @@ VALUES
         1,
         'Doe',
         'John',
-        '123-456-7890',
-        11122,
+        '123455',
+        '11122',
         'New York',
         '2th avenue'
     ),
@@ -34,8 +34,8 @@ VALUES
         2,
         'Jordan',
         'Mike',
-        '987-654-3210',
-        01212,
+        '221122',
+        '01212',
         'Washington',
         'South Park 3'
     ),
@@ -43,8 +43,8 @@ VALUES
         3,
         'Durak',
         'Stephen',
-        '555-666-7777',
-        55654,
+        '550011',
+        '55654',
         'Miami',
         'Sea Drive 112'
     );
