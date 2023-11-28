@@ -1,19 +1,23 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 082-group-functions.sql
+
 --================== Task ======================
 /*
 8.2 Group functions 2
 
 How many employees work in department 30? Label the column
 "count of dept 30",
- */
+*/
+
+
 SELECT
    COUNT(DISTINCT empno) AS "count of dept 30"
 FROM
    emp
 WHERE
    deptno = 30;
+
 
 --================== Varify =====================
 /*
@@ -39,5 +43,6 @@ sqlite> SELECT COUNT(DISTINCT empno) AS "count of dept 30"
 count of dept 30
 ----------------
 6 
- */
+*/
+
 -- End of file
