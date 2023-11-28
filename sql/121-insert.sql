@@ -19,9 +19,10 @@
 
 
 INSERT INTO
-    person (last, first, phone, zip, city, address)
+    person (id, last, first, phone, zip, city, address)
 VALUES
     (
+        1,
         'Doe',
         'John',
         '123-456-7890',
@@ -30,6 +31,7 @@ VALUES
         '2th avenue'
     ),
     (
+        2,
         'Jordan',
         'Mike',
         '987-654-3210',
@@ -38,6 +40,7 @@ VALUES
         'South Park 3'
     ),
     (
+        3,
         'Durak',
         'Stephen',
         '555-666-7777',
