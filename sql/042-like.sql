@@ -33,8 +33,8 @@ FROM
 WHERE
    ename REGEXP '^.[aeiouyAEIOUY]'
    AND (
-      LOWER(job) LIKE '%sales%'
-      OR LOWER(job) LIKE '%analysis%'
+      LOWER(job) LIKE '%salesman%'
+      OR LOWER(job) LIKE '%analyst%'
    )
 ORDER BY
    deptno ASC,
@@ -59,36 +59,23 @@ ORDER BY
 -- SQLite version 3.39.5 2022-10-14 20:58:05
 -- Enter ".help" for usage hints.
 
--- sqlite> PRAGMA table_info(emp);
--- cid  name      type          notnull  dflt_value  pk
--- ---  --------  ------------  -------  ----------  --
--- 0    empno     INTEGER       1        NULL        1 
--- 1    ename     VARCHAR(10)   0        NULL        0 
--- 2    job       VARCHAR(9)    0        NULL        0 
--- 3    mgr       INTEGER       0        NULL        0 
--- 4    hiredate  DATE          0        NULL        0 
--- 5    sal       NUMERIC(7,2)  0        NULL        0 
--- 6    comm      NUMERIC(7,2)  0        NULL        0 
--- 7    deptno    INTEGER       1        NULL        0 
-
--- sqlite> SELECT DISTINCT ename
--- ...> FROM emp;
--- ename 
--- ------
--- SMITH 
--- ALLEN 
--- WARD  
--- JONES 
--- MARTIN
--- BLAKE 
--- CLARK 
--- SCOTT 
--- KING  
--- TURNER
--- ADAMS 
--- JAMES 
--- FORD  
--- MILLER
+-- sqlite> SELECT * FROM emp;
+-- empno  ename   job        mgr   hiredate    sal   comm  deptno
+-- -----  ------  ---------  ----  ----------  ----  ----  ------
+-- 7369   SMITH   CLERK      7902  1980-12-17  800   NULL  20    
+-- 7499   ALLEN   SALESMAN   7698  1981-02-20  1600  300   30    
+-- 7521   WARD    SALESMAN   7698  1981-02-22  1250  500   30    
+-- 7566   JONES   MANAGER    7839  1981-04-02  2975  NULL  20    
+-- 7654   MARTIN  SALESMAN   7698  1981-09-28  1250  1400  30    
+-- 7698   BLAKE   MANAGER    7839  1981-05-01  2850  NULL  30    
+-- 7782   CLARK   MANAGER    7839  1981-06-09  2450  NULL  10    
+-- 7788   SCOTT   ANALYST    7566  1982-12-09  3000  NULL  20    
+-- 7839   KING    PRESIDENT  NULL  1981-11-17  5000  NULL  10    
+-- 7844   TURNER  SALESMAN   7698  1981-09-08  1500  0     30    
+-- 7876   ADAMS   CLERK      7788  1983-01-12  1100  NULL  20    
+-- 7900   JAMES   CLERK      7698  1981-12-03  950   NULL  30    
+-- 7902   FORD    ANALYST    7566  1981-12-03  3000  NULL  20    
+-- 7934   MILLER  CLERK      7782  1982-01-23  1300  NULL  10 
 
 -- sqlite> SELECT DISTINCT job
 -- ...> FROM emp;
