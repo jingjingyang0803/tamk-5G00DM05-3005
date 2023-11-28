@@ -22,7 +22,7 @@ CREATE TABLE
         first VARCHAR(255),
         last VARCHAR(255),
         team VARCHAR(255),
-        comment String
+        comment VARCHAR(2000)
     );
 
 
