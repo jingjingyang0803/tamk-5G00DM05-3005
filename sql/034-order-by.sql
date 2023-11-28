@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 034-order-by.sql
+
 --================== Task ======================
 /*
 3.4 Order by 4
@@ -14,7 +15,9 @@ commission (lowest first). Display:
 Employee   Monthly Salary Sal 10% Comm
 ---------- -------------- ------- ----
 MARTIN               1250  1375.0 1400
- */
+*/
+
+
 SELECT
     ename AS "Employee",
     sal AS "Monthly Salary",
@@ -28,6 +31,7 @@ ORDER BY
     "Employee" ASC,
     "Monthly Salary" ASC,
     "Comm" ASC;
+
 
 --================== Varify =====================
 /*
@@ -55,5 +59,6 @@ sqlite> SELECT ename AS "Employee", sal AS "Monthly Salary", sal*1.1 AS "Sal 10%
 Employee  Monthly Salary  Sal 10%  Comm
 --------  --------------  -------  ----
 MARTIN    1250            1375.0   1400
- */
+*/
+
 -- End of file
