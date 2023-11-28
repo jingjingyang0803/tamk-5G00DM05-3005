@@ -7,7 +7,7 @@
 -- 3.3 Order by 3
 
 -- How much each employee pays taxes in department 10 in a year
--- when tax rate is 31%?. Ignore commission. Sort the result by
+-- when tax rate is 31%. Ignore commission. Sort the result by
 -- department number (lowest first) and employee name
 -- (alphabetically). Display:
 
@@ -19,7 +19,10 @@
 SELECT
     deptno AS "Dept",
     ename AS "Employee",
-    sal * 0.31 AS "Taxes"
+    CAST(
+        ROUND(sal * 12 * 0.31
+        ) AS INTEGER
+    ) AS "Taxes"
 FROM
     emp
 WHERE
@@ -58,6 +61,16 @@ ORDER BY
 -- 10    CLARK     759.5 
 -- 10    KING      1550.0
 -- 10    MILLER    403.0 
+
+-- sqlite> SELECT deptno AS "Dept", ename AS "Employee", CAST(ROUND(sal * 12 * 0.31) AS INTEGER) AS "Taxes"
+-- ...> FROM emp
+-- ...> WHERE deptno = 10
+-- ...> ORDER BY "Dept" ASC, "Employee" ASC;
+-- Dept  Employee  Taxes
+-- ----  --------  -----
+-- 10    CLARK     9114 
+-- 10    KING      18600
+-- 10    MILLER    4836
 -- */
 
 -- End of file
