@@ -2,6 +2,7 @@
 -- Date: 2023-11-14
 -- File: 014-query.sql
 --================== Task ======================
+
 /*
 
 1.4 Query 2
@@ -12,12 +13,15 @@ commissions. Display:
 
 ename  first quarter
 -----  -------------
- */
+*/
+ 
+ 
 SELECT
     ename,
     (sal * 3) AS "first quarter"
 FROM
     emp;
+
 
 --================== Varify =====================
 /*
@@ -54,5 +58,6 @@ ADAMS   3300
 JAMES   2850         
 FORD    9000         
 MILLER  3900 
- */
+*/
+
 -- End of file
