@@ -17,7 +17,7 @@ SELECT
 FROM
    emp
 WHERE
-   ename LIKE '%L%L%'
+   LOWER(ename) LIKE '%L%L%'
    AND (
       deptno = 10
       OR mgr = 7782
