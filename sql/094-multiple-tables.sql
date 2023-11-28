@@ -20,11 +20,11 @@ FROM
     emp
     JOIN dept ON emp.deptno = dept.deptno
 WHERE
-    ename LIKE "%a%"
+    LOWER(ename) LIKE '%a%'
     AND sal > 1100
     AND sal <= 2200
 ORDER BY
-    ename;
+    ename ASC;
 
 --================== Varify =====================
 -- /*
