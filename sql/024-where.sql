@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 024-where.sql
+
 --================== Task ======================
 /*
 2.4 Where 4
@@ -8,7 +9,9 @@
 Display the employee name, job, hiredate between
 February 20, 1981 and May 1 1981; including the
 beginning and end dates.
- */
+*/
+
+
 SELECT
     ename,
     job,
@@ -17,6 +20,7 @@ FROM
     emp
 WHERE
     hiredate BETWEEN '1981-02-20' AND '1981-05-01';
+
 
 --================== Varify =====================
 /*
@@ -46,5 +50,6 @@ ALLEN  SALESMAN  1981-02-20
 WARD   SALESMAN  1981-02-22
 JONES  MANAGER   1981-04-02
 BLAKE  MANAGER   1981-05-01
- */
+*/
+
 -- End of file
