@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 062-coalesce.sql
+
 --================== Task ======================
 /*
 6.2 Coalesce 2
@@ -16,7 +17,9 @@ Name     Net Income Tax
 SMITH    1600       408
 JAMES    1900       484
 ...
- */
+*/
+
+
 -- I think the sql below should make sense but the result differ from the desired ones(SMITH    1600       408) in the description:
 SELECT
     ename AS "Name",
@@ -30,6 +33,7 @@ FROM
     emp
 ORDER BY
     "Net Income";
+
 
 --================== Varify =====================
 /*
@@ -101,5 +105,6 @@ JONES   2975        922
 SCOTT   3000        930 
 FORD    3000        930 
 KING    5000        1550
- */
+*/
+
 -- End of file
