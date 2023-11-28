@@ -27,8 +27,8 @@ FROM
 WHERE
    deptno = 30
 ORDER BY
-   ename,
-   comm;
+   ename ASC,
+   comm ASC;
 
 
 --================== Varify =====================
