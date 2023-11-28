@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 015-query.sql
+
 --================== Task ======================
 /*
 1.5 Query 3
@@ -15,13 +16,16 @@ CLERK
 MANAGER
 PRESIDENT
 SALESMAN
- */
+*/
+
+
 SELECT DISTINCT
     job
 FROM
     emp
 ORDER BY
     job;
+
 
 --================== Varify =====================
 /*
@@ -50,5 +54,6 @@ CLERK
 MANAGER  
 PRESIDENT
 SALESMAN 
- */
+*/
+
 -- End of file
