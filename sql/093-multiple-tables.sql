@@ -13,9 +13,9 @@
 
 
 SELECT
-    ename,
-    dname,
-    comm
+    emp.ename,
+    dept.dname,
+    dept.loc
 FROM
     emp
     JOIN dept ON emp.deptno = dept.deptno
@@ -23,7 +23,7 @@ WHERE
     comm IS NOT NULL
     AND comm > 0
 ORDER BY
-    ename;
+    ename ASC;
 
 
 --================== Varify =====================
@@ -73,6 +73,17 @@ ORDER BY
 -- ALLEN   SALES  300 
 -- MARTIN  SALES  1400
 -- WARD    SALES  500
+
+-- sqlite> SELECT ename, dname, loc
+-- ...> FROM emp
+-- ...> JOIN dept ON emp.deptno = dept.deptno
+-- ...> WHERE comm IS NOT NULL AND comm > 0
+-- ...> ORDER BY ename;
+-- ename   dname  loc    
+-- ------  -----  -------
+-- ALLEN   SALES  CHICAGO
+-- MARTIN  SALES  CHICAGO
+-- WARD    SALES  CHICAGO
 -- */
 
 -- End of file
