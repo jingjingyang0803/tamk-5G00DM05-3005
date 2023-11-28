@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 051-case.sql
+
 --================== Task ======================
 /*
 5.1 Case 1
@@ -15,7 +16,9 @@ FORD       ANALYST
 ..
 ...
 WARD       SALES PERSON
- */
+*/
+
+
 UPDATE emp
 SET
    job = CASE
@@ -31,6 +34,7 @@ FROM
 ORDER BY
    "New Job Name",
    "Name";
+
 
 --================== Varify =====================
 /*
@@ -94,5 +98,6 @@ ALLEN   SALES PERSON
 MARTIN  SALES PERSON
 TURNER  SALES PERSON
 WARD    SALES PERSON
- */
+*/
+
 -- End of file
