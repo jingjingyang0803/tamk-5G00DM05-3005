@@ -26,7 +26,7 @@ CREATE TABLE
         last VARCHAR(255),
         first VARCHAR(255),
         phone VARCHAR(255) CHECK (LOWER(phone) NOT LIKE '%[^0-9 +]%'),
-        zip INTEGER,
+        zip CHAR(5),
         city VARCHAR(255),
         address VARCHAR(255)
     );
