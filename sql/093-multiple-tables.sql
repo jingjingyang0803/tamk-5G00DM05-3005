@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 093-multiple-tables.sql
+
 --================== Task ======================
 /*
 9.3 Multiple tables 3
@@ -8,7 +9,9 @@
 Write a query to display the employee name,
 department name and location of all employees who earn a
 commission. Order the results by name (alphabetically).
- */
+*/
+
+
 SELECT
     ename,
     dname,
@@ -21,6 +24,7 @@ WHERE
     AND comm > 0
 ORDER BY
     ename;
+
 
 --================== Varify =====================
 /*
@@ -69,5 +73,6 @@ ename   dname  comm
 ALLEN   SALES  300 
 MARTIN  SALES  1400
 WARD    SALES  500
- */
+*/
+
 -- End of file
