@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 092-multiple-tables.sql
+
 --================== Task ======================
 /*
 9.2 Multiple tables 2
@@ -8,7 +9,9 @@
 Create a unique listing of all jobs in company's
 branches in Boston or New York. Order
 the results alphabetically.
- */
+*/
+
+
 SELECT DISTINCT
    emp.job
 FROM
@@ -76,5 +79,6 @@ job
 CLERK    
 MANAGER  
 PRESIDENT
- */
+*/
+
 -- End of file
