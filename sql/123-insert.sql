@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 123-insert.sql
+
 --================== Task ======================
 /*
 12.3 Insert 3
@@ -15,7 +16,9 @@ id time_of_reading  high  low  sig comment
 2 2000-12-12 06:00  4.1   0.3  ES  Strong wind
 3 2000-12-14 06:00  2.0  -5.8  RD  Night was cold, foggy weather
 4 2000-12-15 06:00  12.8  7.5  MK  Rainy day
- */
+*/
+
+
 INSERT INTO
     weather (time_of_reading, high, low, sig, comment)
 VALUES
@@ -56,5 +59,6 @@ id  time_of_reading   high  low   sig  comment
 2   2000-12-12 06:00  4.1   0.3   ES   Strong wind                  
 3   2000-12-14 06:00  2     -5.8  RD   Night was cold, foggy weather
 4   2000-12-15 06:00  12.8  7.5   MK   Rainy day  
- */
+*/
+
 -- End of file
