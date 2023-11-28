@@ -1,13 +1,16 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 028-where.sql
+
 --================== Task ======================
 /*
 2.8 Where 8
 
 [NULL value handling] Display the employee name, salary,
 and commission for all employees who earn commissions.
- */
+*/
+
+
 SELECT
    ename,
    sal,
@@ -17,6 +20,7 @@ FROM
 WHERE
    comm IS NOT NULL
    AND comm > 0;
+
 
 --================== Varify =====================
 /*
@@ -55,5 +59,6 @@ ename   sal   comm
 ALLEN   1600  300 
 WARD    1250  500 
 MARTIN  1250  1400
- */
+*/
+
 -- End of file
