@@ -26,7 +26,7 @@ CREATE TABLE
         last VARCHAR(255),
         first VARCHAR(255),
         phone VARCHAR(255) CHECK (LOWER(phone) GLOB '*[0-9 +]*' AND LOWER(phone) NOT GLOB '*[^0-9 +]*'),
-        zip VARCHAR(5),
+        zip CHAR(5),
         city VARCHAR(255),
         address VARCHAR(255)
     );
