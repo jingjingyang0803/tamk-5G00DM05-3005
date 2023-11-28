@@ -19,21 +19,12 @@
 
 
 INSERT INTO
-    football (first, last, team, comment)
+    football (id, first, last, team, comment)
 VALUES
-    ('Jim', 'Anders', 'Manchester', 'UPS 10'),
-    (
-        'Mark',
-        'Knofles',
-        'Liverpool',
-        'Rockwell international'
-    ),
-    (
-        'Jenny',
-        'Richards',
-        'Highland',
-        'Scottish national'
-    );
+    (1, 'Jim', 'Anders', 'Manchester', 'UPS 10'),
+    (2, 'Mark', 'Knofles', 'Liverpool', 'Rockwell international'),
+    (3, 'Jenny', 'Richards', 'Highland', 'Scottish national');
+
 
 
 --================== Varify =====================
