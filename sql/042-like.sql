@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 042-like.sql
+
 --================== Task ======================
 /*
 4.2 Like 2
@@ -21,7 +22,9 @@ JAMES              30
 ...
 |
 Look at character 2, which must be a vowel
- */
+*/
+
+
 SELECT
    ename AS Name,
    deptno AS Department
@@ -129,5 +132,6 @@ Name    Department
 MARTIN  30        
 TURNER  30        
 WARD    30 
- */
+*/
+
 -- End of file
