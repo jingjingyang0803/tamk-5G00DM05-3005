@@ -30,7 +30,7 @@
 
 SELECT
     LOWER(ename) AS "Name",
-    LENGTH (ename) AS "Characters"
+    LENGTH(ename) AS "Characters"
 FROM
     emp
 ORDER BY
