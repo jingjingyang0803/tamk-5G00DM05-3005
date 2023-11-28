@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 094-multiple-tables.sql
+
 --================== Task ======================
 /*
 9.4 Multiple tables 4
@@ -9,7 +10,9 @@ Display the employee name and department name for all
 employees who have an `a' character in their name and who earn
 more than 1100 but less or equal than 2200. Order the results
 alphabetically by name.
- */
+*/
+
+
 SELECT
     ename,
     dname
@@ -70,5 +73,6 @@ ename   dname
 ALLEN   SALES
 MARTIN  SALES
 WARD    SALES
- */
+*/
+
 -- End of file
