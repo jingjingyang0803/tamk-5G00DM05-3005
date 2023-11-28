@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 033-order-by.sql
+
 --================== Task ======================
 /*
 3.3 Order by 3
@@ -12,7 +13,9 @@ department number (lowest first) and employee name
 
 Dept Employee Taxes
 ---- -------- -----
- */
+*/
+
+
 SELECT
     deptno AS "Dept",
     ename AS "Employee",
@@ -24,6 +27,7 @@ WHERE
 ORDER BY
     "Dept" ASC,
     "Employee" ASC;
+
 
 -- ??? Sorting by department number in this specific query doesn't have a practical effect, as all selected records are from department 10. 
 --================== Varify =====================
@@ -54,5 +58,6 @@ Dept  Employee  Taxes
 10    CLARK     759.5 
 10    KING      1550.0
 10    MILLER    403.0 
- */
+*/
+
 -- End of file
