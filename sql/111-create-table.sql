@@ -25,11 +25,15 @@ CREATE TABLE
         id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         last VARCHAR(255),
         first VARCHAR(255),
-        phone VARCHAR(255) CHECK (LOWER(phone) NOT LIKE '%[^0-9 +]%'),
-        zip CHAR(5),
+        phone VARCHAR(255) CHECK (LOWER(phone) GLOB '*[0-9 +]*' AND LOWER(phone) NOT GLOB '*[^0-9 +]*'),
+        zip VARCHAR(5),
         city VARCHAR(255),
         address VARCHAR(255)
     );
+    
+-- some ZIP codes in certain countries or regions may contain letters, making them alphanumeric
+
+
 -- ????In SQLite, when you use AUTOINCREMENT with a column as a primary key, 
 -- it is implicitly considered NOT NULL and UNIQUE. Therefore, 
 -- so no need to specify NOT NULL or UNIQUE explicitly.
