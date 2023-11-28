@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 073-functions.sql
+
 --================== Task ======================
 /*
 7.3 Functions 3
@@ -13,7 +14,9 @@ Round the values to whole numbers. Order the results by name
 
 empno  ename new salary increase
 -----  ----- ---------- --------
- */
+*/
+
+
 SELECT
     empno,
     ename,
@@ -24,6 +27,7 @@ FROM
 ORDER BY
     ename,
     "new salary";
+
 
 --================== Varify =====================
 /*
@@ -52,5 +56,6 @@ empno  ename   new salary  increase
 7369   SMITH   920         120     
 7844   TURNER  1725        225     
 7521   WARD    1438        188 
- */
+*/
+
 -- End of file
