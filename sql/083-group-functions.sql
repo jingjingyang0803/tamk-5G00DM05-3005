@@ -1,13 +1,16 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 083-group-functions.sql
+
 --================== Task ======================
 /*
 8.3 Group functions 3
 
 Display the highest and lowest salaries for employees
 including departments 10 and 30. Label the columns "high" and "low".
- */
+*/
+
+
 SELECT
    deptno,
    MAX(sal) AS "high",
@@ -18,6 +21,7 @@ WHERE
    deptno IN (10, 30)
 GROUP BY
    deptno;
+
 
 --================== Varify =====================
 /*
@@ -79,5 +83,6 @@ deptno  high  low
 ------  ----  ----
 10      5000  1300
 30      2850  950 
- */
+*/
+
 -- End of file
