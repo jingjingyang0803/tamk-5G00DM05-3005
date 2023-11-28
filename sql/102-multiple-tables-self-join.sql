@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 102-multiple-tables-self-join.sql
+
 --================== Task ======================
 /*
 10.2 Multiple tables and self join 2
@@ -10,7 +11,9 @@ employees that work in the same department (Colleagues). Label
 columns "Dept", "Employee" and "Colleague". Order the results
 by "Dept" (lowest first), "Employee" (alphabetically) and
 "Colleague" (alphabetically).
- */
+*/
+
+
 SELECT
     e1.deptno AS "Dept",
     e1.ename AS "Employee",
@@ -23,6 +26,7 @@ ORDER BY
     "Dept",
     "Employee",
     "Colleague";
+
 
 --================== Varify =====================
 /*
@@ -111,5 +115,6 @@ Dept  Employee  Colleague
 30    WARD      JAMES    
 30    WARD      MARTIN   
 30    WARD      TURNER  
- */
+*/
+
 -- End of file
