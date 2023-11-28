@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 104-multiple-tables-self-join.sql
+
 --================== Task ======================
 /*
 10.4 Multiple tables and self join 4
@@ -12,7 +13,9 @@ alphabetically by "Location", "Manager" and "Employee".
 
 Location   Department   Employee   Manager
 --------   ----------   --------   --------
- */
+*/
+
+
 SELECT
    d.loc AS "Location",
    d.dname AS "Department",
@@ -36,6 +39,7 @@ ORDER BY
    "Location",
    "Manager",
    "Employee";
+
 
 --================== Varify =====================
 /*
@@ -112,5 +116,6 @@ CHICAGO   SALES       WARD      BLAKE
 DALLAS    RESEARCH    SMITH     FORD   
 DALLAS    RESEARCH    FORD      JONES  
 DALLAS    RESEARCH    SCOTT     JONES 
- */
+*/
+
 -- End of file
