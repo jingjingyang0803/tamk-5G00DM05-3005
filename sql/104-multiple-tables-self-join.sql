@@ -25,16 +25,9 @@ FROM
    emp AS e
    JOIN emp AS m ON e.mgr = m.empno
    JOIN dept AS d ON e.deptno = d.deptno
+   JOIN salgrade AS s ON m.sal > s.hisal AND s.grade = 3
 WHERE
    UPPER(m.ename) IN ('BLAKE', 'FORD', 'JONES')
-   AND m.sal > (
-      SELECT
-         hisal
-      FROM
-         salgrade
-      WHERE
-         grade = 3
-   )
 ORDER BY
    "Location" ASC,
    "Manager" ASC,
