@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 032-order-by.sql
+
 --================== Task ======================
 /*
 3.2 Order by 2
@@ -9,7 +10,9 @@
 date for all employees whose ID number is above 7900
 or below 7600. Sort the results by the employee
 number (lowest first).
- */
+*/
+
+
 SELECT
     empno,
     ename,
@@ -22,6 +25,7 @@ WHERE
     OR empno < 7600
 ORDER BY
     empno ASC;
+
 
 --================== Varify =====================
 /*
@@ -54,5 +58,6 @@ empno  ename   deptno  hiredate
 7566   JONES   20      1981-04-02
 7902   FORD    20      1981-12-03
 7934   MILLER  10      1982-01-23
- */
+*/
+
 -- End of file
