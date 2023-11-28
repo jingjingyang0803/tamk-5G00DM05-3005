@@ -22,12 +22,12 @@
 
 CREATE TABLE
     weather (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         time_of_reading TIMESTAMP,
-        high DECIMAL(4, 1),
-        low DECIMAL(4, 1),
-        sig CHAR(2),
-        comment VARCHAR(255)
+        high DECIMAL,
+        low DECIMAL,
+        sig VARCHAR(2),
+        comment TEXT
     );
 
 -- DECIMAL(4,1) represents a decimal number with up to 4 digits, of which 1 is after the decimal point. 
