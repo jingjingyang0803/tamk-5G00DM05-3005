@@ -20,15 +20,10 @@
 -- */
 
 
--- I think the sql below should make sense but the result differ from the desired ones(SMITH    1600       408) in the description:
 SELECT
     ename AS "Name",
     (COALESCE(sal, 0) + COALESCE(comm, 0)) AS "Net Income",
-    CAST(
-        ROUND(
-            COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20
-        ) AS INTEGER
-    ) AS "Tax"
+    CAST(ROUND(COALESCE(sal, 0) * 0.31 + COALESCE(comm, 0) * 0.20) AS INTEGER) AS "Tax"
 FROM
     emp
 ORDER BY
