@@ -35,7 +35,7 @@ SELECT
 FROM
    emp
 WHERE
-   hiredate LIKE '1982%';
+   LOWER(hiredate) LIKE '1982%';
 
 --================== Varify =====================
 -- /*
