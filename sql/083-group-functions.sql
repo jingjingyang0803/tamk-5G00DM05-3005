@@ -12,15 +12,12 @@
 
 
 SELECT
-   deptno,
    MAX(sal) AS "high",
    MIN(sal) AS "low"
 FROM
    emp
 WHERE
    deptno IN (10, 30)
-GROUP BY
-   deptno;
 
 
 --================== Varify =====================
