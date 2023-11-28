@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 071-functions.sql
+
 --================== Task ======================
 /*
 7.1 Functions 1
@@ -16,7 +17,9 @@ blake      manager        2850
 ...
 king       president      5000
 ...
- */
+*/
+
+
 SELECT
     LOWER(ename) AS "Name",
     LOWER(job) AS "Job",
@@ -54,5 +57,6 @@ scott   analyst    3000
 smith   clerk      800   
 turner  salesman   1500  
 ward    salesman   1250  
- */
+*/
+
 -- End of file
