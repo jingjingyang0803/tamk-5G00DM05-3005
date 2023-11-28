@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 041-like.sql
+
 --================== Task ======================
 /*
 4.1 Like 1
@@ -8,13 +9,16 @@
 Display the names of all employees where the third letter
 of their name contains character a. Make the query generic for
 all names.
- */
+*/
+
+
 SELECT
    ename
 FROM
    emp
 WHERE
    LOWER(ename) LIKE '__a%';
+   
 
 --================== Varify =====================
 /*
@@ -62,5 +66,6 @@ ename
 BLAKE
 CLARK
 ADAMS
- */
+*/
+
 -- End of file
