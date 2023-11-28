@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 111-create-table.sql
+
 --================== Task ======================
 /*
 11.1 Create table 1
@@ -16,7 +17,9 @@ id last first phone zip city address
 
 Note: suppose phone numbers can contain only "+" and spaces.
 Exmples: +358 50 12 34 55 66
- */
+*/
+
+
 CREATE TABLE
     person (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -84,5 +87,6 @@ cid  name     type          notnull  dflt_value  pk
 4    zip      INT           0        NULL        0 
 5    city     VARCHAR(255)  0        NULL        0 
 6    address  VARCHAR(255)  0        NULL        0 
- */
+*/
+
 -- End of file
