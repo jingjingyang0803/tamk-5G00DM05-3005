@@ -1,13 +1,16 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 022-where.sql
+
 --================== Task ======================
 /*
 2.2 Where 2
 
 Create a query to display the employee name and
 department number with employee number 7566.
- */
+*/
+
+
 SELECT
     ename,
     deptno
@@ -15,6 +18,7 @@ FROM
     emp
 WHERE
     empno = 7566;
+
 
 --================== Varify =====================
 /*
@@ -39,5 +43,6 @@ sqlite> SELECT ename, deptno
 ename  deptno
 -----  ------
 JONES  20
- */
+*/
+
 -- End of file
