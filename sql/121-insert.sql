@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 121-insert.sql
+
 --================== Task ======================
 /*
 12.1 Insert 1
@@ -14,7 +15,9 @@ id last   first   phone  zip   city       address
 1 Doe    John    123455 11122 New York   2th avenue
 2 Jordan Mike    221122 01212 Washington South Park 3
 3 Durak  Stephen 550011 55654 Miami      Sea Drive 112
- */
+*/
+
+
 INSERT INTO
     person (last, first, phone, zip, city, address)
 VALUES
@@ -43,6 +46,7 @@ VALUES
         'Sea Drive 112'
     );
 
+
 --================== Varify =====================
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
@@ -61,5 +65,6 @@ id  last    first    phone         zip    city        address
 1   Doe     John     123-456-7890  11122  New York    2th avenue   
 2   Jordan  Mike     987-654-3210  1212   Washington  South Park 3 
 3   Durak   Stephen  555-666-7777  55654  Miami       Sea Drive 112
- */
+*/
+
 -- End of file
