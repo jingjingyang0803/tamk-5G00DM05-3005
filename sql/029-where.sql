@@ -1,13 +1,16 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 029-where.sql
+
 --================== Task ======================
 /*
 2.9 Where 9
 
 [NULL value handling] Display the employee name and job for
 all employees who do not have a manager.
- */
+*/
+
+
 SELECT
    ename,
    job
@@ -15,6 +18,7 @@ FROM
    emp
 WHERE
    mgr IS NULL;
+
 
 --================== Varify =====================
 /*
@@ -53,5 +57,6 @@ sqlite> SELECT ename, job
 ename  job      
 -----  ---------
 KING   PRESIDENT
- */
+*/
+
 -- End of file
