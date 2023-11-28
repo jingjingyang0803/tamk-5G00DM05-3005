@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 122-insert.sql
+
 --================== Task ======================
 /*
 12.2 Insert 2
@@ -14,7 +15,9 @@ id first  last     team        comment
 1 Jim    Anders   Manchester  UPS 10
 2 Mark   Knofles  Liverpool   Rockwell international
 3 Jenny  Richards Highland    Scottish national
- */
+*/
+
+
 INSERT INTO
     football (first, last, team, comment)
 VALUES
@@ -31,6 +34,7 @@ VALUES
         'Highland',
         'Scottish national'
     );
+
 
 --================== Varify =====================
 /*
@@ -50,5 +54,6 @@ id  first  last      team        comment
 1   Jim    Anders    Manchester  UPS 10                
 2   Mark   Knofles   Liverpool   Rockwell international
 3   Jenny  Richards  Highland    Scottish national   
- */
+*/
+
 -- End of file
