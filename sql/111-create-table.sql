@@ -22,14 +22,19 @@
 
 CREATE TABLE
     person (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         last VARCHAR(255),
         first VARCHAR(255),
-        phone VARCHAR(255) CHECK (phone NOT LIKE '%[^0-9 +]%'),
-        zip INT,
+        phone VARCHAR(255) CHECK (LOWER(phone) NOT LIKE '%[^0-9 +]%'),
+        zip INTEGER,
         city VARCHAR(255),
         address VARCHAR(255)
     );
+-- ????In SQLite, when you use AUTOINCREMENT with a column as a primary key, 
+-- it is implicitly considered NOT NULL and UNIQUE. Therefore, 
+-- so no need to specify NOT NULL or UNIQUE explicitly.
+
+
 
 -- The expression `phone NOT LIKE '%[^0-9 +]%'` ensures that the phone number does not contain any character other than digits, spaces, and plus sign. 
 -- This is done using a regular expression where `[^0-9 +]` means any character not in the set `0-9`, `space`, and `+`.
