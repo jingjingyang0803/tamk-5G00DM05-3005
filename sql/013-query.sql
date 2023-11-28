@@ -1,11 +1,14 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 013-query.sql
+
 -----------------------Task---------------------
 /*
 Create query to display name, job, hiring date and emplyee
 number for each employee.
- */
+*/
+
+
 SELECT
         ename,
         job,
@@ -13,6 +16,7 @@ SELECT
         empno
 FROM
         emp;
+
 
 -------------------------Varify------------------
 /*
@@ -49,5 +53,6 @@ ADAMS   CLERK      1983-01-12  7876
 JAMES   CLERK      1981-12-03  7900 
 FORD    ANALYST    1981-12-03  7902 
 MILLER  CLERK      1982-01-23  7934
- */
+*/
+
 -- End of file
