@@ -3,21 +3,21 @@
 -- File: 113-create-table.sql
 
 --================== Task ======================
-/*
-11.3 Create table 3
+-- /*
+-- 11.3 Create table 3
 
-Create table for weather report (do not insert any data).
-Time of reading, temperature in Celsius, comment column, two
-letter signature initials, like "JD", of a person who made the
-temperature reading, the low reading, the high reading.
+-- Create table for weather report (do not insert any data).
+-- Time of reading, temperature in Celsius, comment column, two
+-- letter signature initials, like "JD", of a person who made the
+-- temperature reading, the low reading, the high reading.
 
-table: weather
+-- table: weather
 
-id time_of_reading high low sig comment
--- --------------- ---- --- --- -------
+-- id time_of_reading high low sig comment
+-- -- --------------- ---- --- --- -------
 
-Note: temperatures in format: -10.5 or 30.8
-*/
+-- Note: temperatures in format: -10.5 or 30.8
+-- */
 
 
 CREATE TABLE
@@ -34,50 +34,50 @@ CREATE TABLE
 
 
 --================== Varify =====================
-/*
-jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
--- Loading resources from /Users/jingjingyang/.sqliterc
-SQLite version 3.39.5 2022-10-14 20:58:05
-Enter ".help" for usage hints.
+-- /*
+-- jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
+-- -- Loading resources from /Users/jingjingyang/.sqliterc
+-- SQLite version 3.39.5 2022-10-14 20:58:05
+-- Enter ".help" for usage hints.
 
-sqlite> CREATE TABLE weather (
-...>     id SERIAL PRIMARY KEY,
-...>     time_of_reading TIMESTAMP,
-...>     high DECIMAL(4, 1),
-...>     low DECIMAL(4, 1),
-...>     sig CHAR(2),
-...>     comment VARCHAR(255)
-...> );
-sqlite> PRAGMA table_info(weather);
-cid  name             type           notnull  dflt_value  pk
----  ---------------  -------------  -------  ----------  --
-0    id               SERIAL         0        NULL        1 
-1    time_of_reading  TIMESTAMP      0        NULL        0 
-2    high             DECIMAL(4, 1)  0        NULL        0 
-3    low              DECIMAL(4, 1)  0        NULL        0 
-4    sig              CHAR(2)        0        NULL        0 
-5    comment          VARCHAR(255)   0        NULL        0 
+-- sqlite> CREATE TABLE weather (
+-- ...>     id SERIAL PRIMARY KEY,
+-- ...>     time_of_reading TIMESTAMP,
+-- ...>     high DECIMAL(4, 1),
+-- ...>     low DECIMAL(4, 1),
+-- ...>     sig CHAR(2),
+-- ...>     comment VARCHAR(255)
+-- ...> );
+-- sqlite> PRAGMA table_info(weather);
+-- cid  name             type           notnull  dflt_value  pk
+-- ---  ---------------  -------------  -------  ----------  --
+-- 0    id               SERIAL         0        NULL        1 
+-- 1    time_of_reading  TIMESTAMP      0        NULL        0 
+-- 2    high             DECIMAL(4, 1)  0        NULL        0 
+-- 3    low              DECIMAL(4, 1)  0        NULL        0 
+-- 4    sig              CHAR(2)        0        NULL        0 
+-- 5    comment          VARCHAR(255)   0        NULL        0 
 
-sqlite> DROP TABLE weather;
+-- sqlite> DROP TABLE weather;
 
-sqlite> CREATE TABLE weather (
-...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
-...>     time_of_reading TIMESTAMP,
-...>     high DECIMAL(4, 1),
-...>     low DECIMAL(4, 1),
-...>     sig CHAR(2),
-...>     comment VARCHAR(255)
-...> );
+-- sqlite> CREATE TABLE weather (
+-- ...>     id INTEGER PRIMARY KEY AUTOINCREMENT,
+-- ...>     time_of_reading TIMESTAMP,
+-- ...>     high DECIMAL(4, 1),
+-- ...>     low DECIMAL(4, 1),
+-- ...>     sig CHAR(2),
+-- ...>     comment VARCHAR(255)
+-- ...> );
 
-sqlite> PRAGMA table_info(weather);
-cid  name             type           notnull  dflt_value  pk
----  ---------------  -------------  -------  ----------  --
-0    id               INTEGER        0        NULL        1 
-1    time_of_reading  TIMESTAMP      0        NULL        0 
-2    high             DECIMAL(4, 1)  0        NULL        0 
-3    low              DECIMAL(4, 1)  0        NULL        0 
-4    sig              CHAR(2)        0        NULL        0 
-5    comment          VARCHAR(255)   0        NULL        0 
-*/
+-- sqlite> PRAGMA table_info(weather);
+-- cid  name             type           notnull  dflt_value  pk
+-- ---  ---------------  -------------  -------  ----------  --
+-- 0    id               INTEGER        0        NULL        1 
+-- 1    time_of_reading  TIMESTAMP      0        NULL        0 
+-- 2    high             DECIMAL(4, 1)  0        NULL        0 
+-- 3    low              DECIMAL(4, 1)  0        NULL        0 
+-- 4    sig              CHAR(2)        0        NULL        0 
+-- 5    comment          VARCHAR(255)   0        NULL        0 
+-- */
 
 -- End of file
