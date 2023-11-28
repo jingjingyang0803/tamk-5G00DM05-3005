@@ -27,7 +27,7 @@ CREATE TABLE
         high DECIMAL,
         low DECIMAL,
         sig VARCHAR(2),
-        comment TEXT
+        comment String
     );
 
 -- DECIMAL(4,1) represents a decimal number with up to 4 digits, of which 1 is after the decimal point. 
