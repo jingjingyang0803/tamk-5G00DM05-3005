@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 112-create-table.sql
+
 --================== Task ======================
 /*
 11.2 Create table 2
@@ -12,7 +13,9 @@ table: football
 
 id first last team comment
 -- ----- ---- ---- -------
- */
+*/
+
+
 CREATE TABLE
     football (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,6 +24,7 @@ CREATE TABLE
         team VARCHAR(255),
         comment VARCHAR(255)
     );
+
 
 --================== Varify =====================
 /*
@@ -64,5 +68,6 @@ cid  name     type          notnull  dflt_value  pk
 2    last     VARCHAR(255)  0        NULL        0 
 3    team     VARCHAR(255)  0        NULL        0 
 4    comment  VARCHAR(255)  0        NULL        0 
- */
+*/
+
 -- End of file
