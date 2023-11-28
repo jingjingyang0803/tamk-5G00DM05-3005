@@ -22,7 +22,7 @@
 UPDATE emp
 SET
    job = CASE
-      WHEN job = 'SALESMAN' THEN 'SALES PERSON'
+      WHEN UPPER(job) = 'SALESMAN' THEN 'SALES PERSON'
       ELSE job
    END;
 
