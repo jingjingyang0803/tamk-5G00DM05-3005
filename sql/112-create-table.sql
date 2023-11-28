@@ -17,12 +17,12 @@
 
 
 CREATE TABLE
-    football3 (
+    football4 (
         id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         first VARCHAR(255),
         last VARCHAR(255),
         team VARCHAR(255),
-        comment VARCHAR(800)
+        comment String
     );
 
 
