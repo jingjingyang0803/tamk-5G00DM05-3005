@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 052-case.sql
+
 --================== Task ======================
 /*
 5.2 Case 2
@@ -14,7 +15,9 @@ by updated commission (lowest first) and name
 
 ename comm
 ----- ----
- */
+*/
+
+
 UPDATE emp
 SET
    comm = CASE
@@ -36,6 +39,7 @@ FROM
 ORDER BY
    comm,
    ename;
+
 
 --================== Varify =====================
 /*
@@ -98,5 +102,6 @@ JAMES   100
 ALLEN   315 
 WARD    525 
 MARTIN  1470
- */
+*/
+
 -- End of file
