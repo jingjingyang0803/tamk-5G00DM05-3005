@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 061-coalesce.sql
+
 --================== Task ======================
 /*
 6.1 Coalesce 1
@@ -14,7 +15,9 @@ deptno  ename    comm
 30      ALLEN    300
 30      BLAKE    0
 ...
- */
+*/
+ 
+ 
 SELECT
    deptno,
    ename,
@@ -26,6 +29,7 @@ WHERE
 ORDER BY
    ename,
    comm;
+
 
 --================== Varify =====================
 /*
@@ -58,5 +62,6 @@ deptno  ename   comm
 30      MARTIN  1400
 30      TURNER  0   
 30      WARD    500 
- */
+*/
+
 -- End of file
