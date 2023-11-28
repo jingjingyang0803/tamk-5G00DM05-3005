@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 091-multiple-tables.sql
+
 --================== Task ======================
 /*
 9.1 Multiple tables 1
@@ -9,7 +10,9 @@ Write a query to display employee's name,
 department number and department name for all employees who
 work in Dallas or whose job title is salesman. Order
 the results by name (alphabetically).
- */
+*/
+
+
 SELECT
    emp.ename,
    emp.deptno,
@@ -22,6 +25,7 @@ WHERE
    OR LOWER(emp.job) = 'salesman'
 ORDER BY
    emp.ename;
+
 
 --================== Varify =====================
 /*
@@ -92,5 +96,6 @@ SCOTT   20      RESEARCH
 SMITH   20      RESEARCH
 TURNER  30      SALES   
 WARD    30      SALES   
- */
+*/
+
 -- End of file
