@@ -19,10 +19,10 @@
 
 CREATE TABLE
     inventory (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         item VARCHAR(255),
-        worth INT,
-        comment VARCHAR(255)
+        worth INTEGER,
+        comment TEXT
     );
 
 
