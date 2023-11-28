@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 074-functions.sql
+
 --================== Task ======================
 /*
 7.4 Functions 4
@@ -19,7 +20,9 @@ BLAKE           MANAGER
 ...
 JAMES           clerk
 ...
- */
+*/
+
+
 SELECT
     ename,
     CASE
@@ -33,6 +36,7 @@ FROM
 ORDER BY
     ename,
     job;
+
 
 --================== Alternative solution =====================
 /*
@@ -99,5 +103,6 @@ SCOTT   ANALYST
 SMITH   CLERK    
 TURNER  SALESMAN 
 WARD    SALESMAN 
- */
+*/
+
 -- End of file
