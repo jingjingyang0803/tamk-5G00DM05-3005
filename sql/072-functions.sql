@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 072-functions.sql
+
 --================== Task ======================
 /*
 7.2 Functions 2
@@ -24,7 +25,9 @@ smith       5
 martin      6
 miller      6
 turner      6
- */
+*/
+
+
 SELECT
     LOWER(ename) AS "Name",
     LENGTH (ename) AS "Characters"
@@ -33,6 +36,7 @@ FROM
 ORDER BY
     "Characters",
     "Name";
+
 
 --================== Varify =====================
 /*
@@ -60,5 +64,6 @@ smith   5
 martin  6         
 miller  6         
 turner  6 
- */
+*/
+
 -- End of file
