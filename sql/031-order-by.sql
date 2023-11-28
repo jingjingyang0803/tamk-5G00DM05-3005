@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 031-order-by.sql
+
 --================== Task ======================
 /*
 3.1 Order by 1
@@ -12,7 +13,9 @@ first) and employee name (alphabetically).
 
 ename sal new salary
 ----- --- ----------
- */
+*/
+
+
 SELECT
     ename,
     sal,
@@ -31,6 +34,7 @@ WHERE
 ORDER BY
     "new salary" ASC,
     ename ASC;
+
 
 --================== Varify =====================
 /*
@@ -62,5 +66,6 @@ MARTIN  1250  1437.5
 WARD    1250  1437.5    
 TURNER  1500  1725.0    
 ALLEN   1600  1840.0 
- */
+*/
+
 -- End of file
