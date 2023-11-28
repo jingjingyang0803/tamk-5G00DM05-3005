@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 114-create-table.sql
+
 --================== Task ======================
 /*
 11.4 Create table 4
@@ -13,7 +14,9 @@ id item      worth comment
 -- --------  ----- -------------------
 
 Note: worth is expressed in whole numbers only.
- */
+*/
+
+
 CREATE TABLE
     inventory (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,6 +24,7 @@ CREATE TABLE
         worth INT,
         comment VARCHAR(255)
     );
+
 
 --================== Varify =====================
 /*
@@ -60,5 +64,6 @@ cid  name     type          notnull  dflt_value  pk
 1    item     VARCHAR(255)  0        NULL        0 
 2    worth    INT           0        NULL        0 
 3    comment  VARCHAR(255)  0        NULL        0 
- */
+*/
+
 -- End of file
