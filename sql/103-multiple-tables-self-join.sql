@@ -14,12 +14,12 @@
 SELECT
    e.ename
 FROM
-   emp e
-   JOIN emp m ON e.mgr = m.empno
+   emp AS e
+   JOIN emp AS m ON e.mgr = m.empno
 WHERE
    e.sal > m.sal
 ORDER BY
-   e.ename;
+   e.ename ASC;
 
 
 --================== Varify =====================
