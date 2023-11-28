@@ -20,13 +20,13 @@ SELECT
     e.ename AS "Employee",
     e.empno AS "Emp#"
 FROM
-    emp e
-    JOIN emp m ON e.mgr = m.empno
+    emp AS e
+    JOIN emp AS m ON e.mgr = m.empno
 WHERE
     UPPER(m.ename) IN ('BLAKE', 'FORD', 'SCOTT')
 ORDER BY
-    "Manager",
-    "Employee";
+    "Manager" ASC,
+    "Employee" ASC;
 
 
 --================== Varify =====================
