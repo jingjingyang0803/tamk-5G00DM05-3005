@@ -19,21 +19,17 @@
 -- */
 
 
-UPDATE emp
-SET
-   job = CASE
-      WHEN UPPER(job) = 'SALESMAN' THEN 'SALES PERSON'
-      ELSE job
-   END;
-
 SELECT
    ename AS "Name",
-   job AS "New Job Name"
+   CASE
+      WHEN UPPER(job) = 'SALESMAN' THEN 'SALES PERSON'
+      ELSE job
+   END AS "New Job Name"
 FROM
    emp
 ORDER BY
-   "New Job Name",
-   "Name";
+   "New Job Name" ASC,
+   "Name" ASC;
 
 
 --================== Varify =====================
