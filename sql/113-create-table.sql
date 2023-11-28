@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 113-create-table.sql
+
 --================== Task ======================
 /*
 11.3 Create table 3
@@ -16,7 +17,9 @@ id time_of_reading high low sig comment
 -- --------------- ---- --- --- -------
 
 Note: temperatures in format: -10.5 or 30.8
- */
+*/
+
+
 CREATE TABLE
     weather (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,6 +31,8 @@ CREATE TABLE
     );
 
 -- DECIMAL(4,1) represents a decimal number with up to 4 digits, of which 1 is after the decimal point. 
+
+
 --================== Varify =====================
 /*
 jingjingyang@jingjings-MacBook-Pro ~ % sqlite3 test.db
@@ -73,5 +78,6 @@ cid  name             type           notnull  dflt_value  pk
 3    low              DECIMAL(4, 1)  0        NULL        0 
 4    sig              CHAR(2)        0        NULL        0 
 5    comment          VARCHAR(255)   0        NULL        0 
- */
+*/
+
 -- End of file
