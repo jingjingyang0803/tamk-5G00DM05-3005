@@ -17,7 +17,7 @@
 
 
 CREATE TABLE
-    football4 (
+    football (
         id INTEGER PRIMARY KEY NOT NULL UNIQUE,
         first VARCHAR(255),
         last VARCHAR(255),
