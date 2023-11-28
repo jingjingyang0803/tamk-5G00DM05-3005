@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 043-like.sql
+
 --================== Task ======================
 /*
 4.3 Like 3
@@ -8,7 +9,9 @@
 Display the name of all employees who have two *L*
 characters in their name. All these must work in department 10
 or their manager is 7782. Make the query generic for all names.
- */
+*/
+
+
 SELECT
    ename
 FROM
@@ -19,6 +22,7 @@ WHERE
       deptno = 10
       OR mgr = 7782
    );
+
 
 --================== Task continue ======================
 /*
@@ -77,5 +81,6 @@ ename   hiredate
 ------  ----------
 SCOTT   1982-12-09
 MILLER  1982-01-23
- */
+*/
+
 -- End of file
