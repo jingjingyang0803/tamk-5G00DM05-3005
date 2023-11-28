@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 124-insert.sql
+
 --================== Task ======================
 /*
 12.4 Insert 4
@@ -14,13 +15,16 @@ id item      worth comment
 1 baseball  150   My first baseball
 2 bike      2000  For mountain riding
 3 playcards 10    Funny pictures
- */
+*/
+
+
 INSERT INTO
     inventory (item, worth, comment)
 VALUES
     ('baseball', 150, 'My first baseball'),
     ('bike', 2000, 'For mountain riding'),
     ('playcards', 10, 'Funny pictures');
+
 
 --================== Varify =====================
 /*
@@ -40,5 +44,6 @@ id  item       worth  comment
 1   baseball   150    My first baseball  
 2   bike       2000   For mountain riding
 3   playcards  10     Funny pictures     
- */
+*/
+
 -- End of file
