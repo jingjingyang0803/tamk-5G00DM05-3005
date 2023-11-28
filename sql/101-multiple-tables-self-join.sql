@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 101-multiple-tables-self-join.sql
+
 --================== Task ======================
 /*
 10.1 Multiple tables and self join 1
@@ -10,7 +11,9 @@ number for who work under managers BLAKE, FORD or SCOTT.
 Label the columns "Employee", "Emp#", "Manager" and "Mgr#".
 Order the results alphabetically by "Manager" and "Employee"
 columns.
- */
+*/
+
+
 SELECT
     m.ename AS "Manager",
     m.empno AS "Mgr#",
@@ -24,6 +27,7 @@ WHERE
 ORDER BY
     "Manager",
     "Employee";
+
 
 --================== Varify =====================
 /*
@@ -64,5 +68,6 @@ BLAKE    7698  TURNER    7844
 BLAKE    7698  WARD      7521
 FORD     7902  SMITH     7369
 SCOTT    7788  ADAMS     7876
- */
+*/
+
 -- End of file
