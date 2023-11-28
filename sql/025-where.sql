@@ -1,13 +1,16 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-14
 -- File: 025-where.sql
+
 --================== Task ======================
 /*
 2.5 Where 5
 
 Display the employee name and department number
 of all employees in departments 10 and 30.
- */
+*/
+
+
 SELECT
     ename,
     deptno
@@ -15,6 +18,7 @@ FROM
     emp
 WHERE
     deptno IN (10, 30);
+
 
 --================== Varify =====================
 /*
@@ -49,5 +53,6 @@ KING    10
 TURNER  30    
 JAMES   30    
 MILLER  10 
- */
+*/
+
 -- End of file
