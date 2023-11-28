@@ -29,13 +29,16 @@ WHERE
 -- Display the name and hire date of every employee who
 -- were hired in 1982. Use LIKE keyword in query.
 --  */
-SELECT
-   ename,
-   hiredate
-FROM
-   emp
-WHERE
-   LOWER(hiredate) LIKE '1982%';
+
+
+-- SELECT
+--    ename,
+--    hiredate
+-- FROM
+--    emp
+-- WHERE
+--    LOWER(hiredate) LIKE '1982%';
+   
 
 --================== Varify =====================
 -- /*
