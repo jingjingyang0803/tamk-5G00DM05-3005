@@ -1,6 +1,7 @@
 -- Author: Jingjing Yang <jingjing.yang@tuni.fi>
 -- Date: 2023-11-15
 -- File: 095-multiple-tables.sql
+
 --================== Task ======================
 /*
 9.5 Multiple tables 5
@@ -11,7 +12,9 @@ work in *accounting* department and who earn more than 1000;
 who work in *sales* department and earn more than 1000; and
 who work in *operations* and earn more than 1000. Ignore
 commission. Order the results alphabetically by name.
- */
+*/
+
+
 SELECT
    ename,
    job,
@@ -93,5 +96,6 @@ MARTIN  SALESMAN   30      SALES
 MILLER  CLERK      10      ACCOUNTING
 TURNER  SALESMAN   30      SALES     
 WARD    SALESMAN   30      SALES       
- */
+*/
+
 -- End of file
