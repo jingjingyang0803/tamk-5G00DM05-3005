@@ -26,18 +26,25 @@ const INSERT_INTO = `INSERT INTO ${table} (name, type, size, color, price) VALUE
 const UPDATE = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`;
 const DELETE = `DELETE FROM ${table} WHERE id = ?`;
 
+// Function to create error response
+function createErrorResponse(err) {
+  return {
+    error: err.message,
+    code: err.code, // If the error has a specific code
+    details: {
+      /* any relevant details */
+    },
+    stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+  };
+}
+
 // HTTP GET endpoint
 app.get(`/${table}`, (req, res) => {
   db.all(SELECT_ALL, [], (err, rows) => {
     if (err) {
-      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
-        error: err.message,
-        code: err.code, // If the error has a specific code
-        details: {
-          /* any relevant details */
-        },
-        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
-      });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json(createErrorResponse(err));
       return;
     }
     res.json(rows);
@@ -50,14 +57,9 @@ app.get(`/${table}/:id`, (req, res) => {
 
   db.get(SELECT_ID, values, (err, row) => {
     if (err) {
-      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
-        error: err.message,
-        code: err.code, // If the error has a specific code
-        details: {
-          /* any relevant details */
-        },
-        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
-      });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json(createErrorResponse(err));
       return;
     }
     res.json(row);
@@ -76,14 +78,9 @@ app.post(`/${table}`, (req, res) => {
 
   db.run(INSERT_INTO, values, function (err) {
     if (err) {
-      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
-        error: err.message,
-        code: err.code, // If the error has a specific code
-        details: {
-          /* any relevant details */
-        },
-        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
-      });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json(createErrorResponse(err));
       return;
     }
     res.status(HTTP_STATUS_CREATED).json({ id: this.lastID });
@@ -103,14 +100,9 @@ app.put(`/${table}/:id`, (req, res) => {
 
   db.run(UPDATE, values, function (err) {
     if (err) {
-      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
-        error: err.message,
-        code: err.code, // If the error has a specific code
-        details: {
-          /* any relevant details */
-        },
-        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
-      });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json(createErrorResponse(err));
       return;
     }
     res
@@ -125,14 +117,9 @@ app.delete(`/${table}/:id`, (req, res) => {
 
   db.run(DELETE, values, function (err) {
     if (err) {
-      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
-        error: err.message,
-        code: err.code, // If the error has a specific code
-        details: {
-          /* any relevant details */
-        },
-        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
-      });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json(createErrorResponse(err));
       return;
     }
     res
