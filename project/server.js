@@ -38,8 +38,13 @@ function createErrorResponse(err) {
   };
 }
 
+// Redirect from '/' to '/clothes'
+app.get("/", (req, res) => {
+  res.redirect("/clothes");
+});
+
 // HTTP GET endpoint
-app.get(`/${table}`, (req, res) => {
+app.get(`/clothes`, (req, res) => {
   db.all(SELECT_ALL, [], (err, rows) => {
     if (err) {
       res
@@ -52,7 +57,7 @@ app.get(`/${table}`, (req, res) => {
 });
 
 // HTTP GET endpoint for a specific record
-app.get(`/${table}/:id`, (req, res) => {
+app.get(`/clothes/:id`, (req, res) => {
   const values = [req.params.id];
 
   db.get(SELECT_ID, values, (err, row) => {
@@ -67,7 +72,7 @@ app.get(`/${table}/:id`, (req, res) => {
 });
 
 // HTTP POST endpoint
-app.post(`/${table}`, (req, res) => {
+app.post(`/clothes`, (req, res) => {
   const values = [
     req.body.name,
     req.body.type,
@@ -88,7 +93,7 @@ app.post(`/${table}`, (req, res) => {
 });
 
 // HTTP UPDATE endpoint
-app.put(`/${table}/:id`, (req, res) => {
+app.put(`/clothes/:id`, (req, res) => {
   const values = [
     req.body.name,
     req.body.type,
@@ -112,7 +117,7 @@ app.put(`/${table}/:id`, (req, res) => {
 });
 
 // HTTP DELETE endpoint
-app.delete(`/${table}/:id`, (req, res) => {
+app.delete(`/clothes/:id`, (req, res) => {
   const values = [req.params.id];
 
   db.run(DELETE, values, function (err) {
