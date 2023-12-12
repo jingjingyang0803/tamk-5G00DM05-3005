@@ -7,6 +7,9 @@ const HTTP_STATUS_CREATED = 201;
 const HTTP_STATUS_NO_CONTENT = 204;
 const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
 
+// Table name as a variable
+const table = "Clothes";
+
 // Connect to SQLite database
 let db = new sqlite3.Database("./database.db");
 
@@ -16,14 +19,9 @@ const app = express();
 // Enable to parse JSON body in POST requests
 app.use(express.json());
 
-// Redirect from '/' to '/clothes'
-app.get("/", (req, res) => {
-  res.redirect("/clothes");
-});
-
 // HTTP GET endpoint
-app.get("/clothes", (req, res) => {
-  db.all("SELECT * FROM Clothes", [], (err, rows) => {
+app.get(`/${table}`, (req, res) => {
+  db.all(`SELECT * FROM ${table}`, [], (err, rows) => {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
@@ -35,8 +33,8 @@ app.get("/clothes", (req, res) => {
 });
 
 // HTTP GET endpoint for a specific record
-app.get("/clothes/:id", (req, res) => {
-  const query = "SELECT * FROM Clothes WHERE id = ?";
+app.get(`/${table}/:id`, (req, res) => {
+  const query = `SELECT * FROM ${table} WHERE id = ?`;
   const values = [req.params.id];
 
   db.get(query, values, (err, row) => {
@@ -51,9 +49,8 @@ app.get("/clothes/:id", (req, res) => {
 });
 
 // HTTP POST endpoint
-app.post("/clothes", (req, res) => {
-  const query =
-    "INSERT INTO Clothes (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)";
+app.post(`/${table}`, (req, res) => {
+  const query = `INSERT INTO ${table} (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)`;
   const values = [
     req.body.name,
     req.body.type,
@@ -74,9 +71,8 @@ app.post("/clothes", (req, res) => {
 });
 
 // HTTP UPDATE endpoint
-app.put("/clothes/:id", (req, res) => {
-  const query =
-    "UPDATE Clothes SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?";
+app.put(`/${table}/:id`, (req, res) => {
+  const query = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`;
   const values = [
     req.body.name,
     req.body.type,
@@ -100,8 +96,8 @@ app.put("/clothes/:id", (req, res) => {
 });
 
 // HTTP DELETE endpoint
-app.delete("/clothes/:id", (req, res) => {
-  const query = "DELETE FROM Clothes WHERE id = ?";
+app.delete(`/${table}/:id`, (req, res) => {
+  const query = `DELETE FROM ${table} WHERE id = ?`;
   const values = [req.params.id];
 
   db.run(query, values, function (err) {
@@ -118,5 +114,5 @@ app.delete("/clothes/:id", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("Server is running on <http://localhost:8080> ...");
+  console.log(`Server is running on <http://localhost:8080> ...`);
 });
