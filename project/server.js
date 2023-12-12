@@ -7,11 +7,11 @@ const HTTP_STATUS_CREATED = 201;
 const HTTP_STATUS_NO_CONTENT = 204;
 const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
 
-// Table name as a variable
-const table = "Clothes";
-
 // Connect to SQLite database
 let db = new sqlite3.Database("./database.db");
+
+// Table name as a variable
+const table = "Clothes";
 
 // Initialize Express app
 const app = express();
@@ -19,9 +19,16 @@ const app = express();
 // Enable to parse JSON body in POST requests
 app.use(express.json());
 
+// SQL queries as variables
+const SELECT_ALL = `SELECT * FROM ${table}`;
+const SELECT_ID = `SELECT * FROM ${table} WHERE id = ?`;
+const INSERT_INTO = `INSERT INTO ${table} (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)`;
+const UPDATE = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`;
+const DELETE = `DELETE FROM ${table} WHERE id = ?`;
+
 // HTTP GET endpoint
 app.get(`/${table}`, (req, res) => {
-  db.all(`SELECT * FROM ${table}`, [], (err, rows) => {
+  db.all(SELECT_ALL, [], (err, rows) => {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
@@ -34,10 +41,9 @@ app.get(`/${table}`, (req, res) => {
 
 // HTTP GET endpoint for a specific record
 app.get(`/${table}/:id`, (req, res) => {
-  const query = `SELECT * FROM ${table} WHERE id = ?`;
   const values = [req.params.id];
 
-  db.get(query, values, (err, row) => {
+  db.get(SELECT_ID, values, (err, row) => {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
@@ -50,7 +56,6 @@ app.get(`/${table}/:id`, (req, res) => {
 
 // HTTP POST endpoint
 app.post(`/${table}`, (req, res) => {
-  const query = `INSERT INTO ${table} (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)`;
   const values = [
     req.body.name,
     req.body.type,
@@ -59,7 +64,7 @@ app.post(`/${table}`, (req, res) => {
     req.body.price,
   ];
 
-  db.run(query, values, function (err) {
+  db.run(INSERT_INTO, values, function (err) {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
@@ -72,7 +77,6 @@ app.post(`/${table}`, (req, res) => {
 
 // HTTP UPDATE endpoint
 app.put(`/${table}/:id`, (req, res) => {
-  const query = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`;
   const values = [
     req.body.name,
     req.body.type,
@@ -82,7 +86,7 @@ app.put(`/${table}/:id`, (req, res) => {
     req.params.id,
   ];
 
-  db.run(query, values, function (err) {
+  db.run(UPDATE, values, function (err) {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
@@ -97,10 +101,9 @@ app.put(`/${table}/:id`, (req, res) => {
 
 // HTTP DELETE endpoint
 app.delete(`/${table}/:id`, (req, res) => {
-  const query = `DELETE FROM ${table} WHERE id = ?`;
   const values = [req.params.id];
 
-  db.run(query, values, function (err) {
+  db.run(DELETE, values, function (err) {
     if (err) {
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
