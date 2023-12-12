@@ -30,9 +30,14 @@ const DELETE = `DELETE FROM ${table} WHERE id = ?`;
 app.get(`/${table}`, (req, res) => {
   db.all(SELECT_ALL, [], (err, rows) => {
     if (err) {
-      res
-        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json({ error: err.message });
+      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
+        error: err.message,
+        code: err.code, // If the error has a specific code
+        details: {
+          /* any relevant details */
+        },
+        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+      });
       return;
     }
     res.json(rows);
@@ -45,9 +50,14 @@ app.get(`/${table}/:id`, (req, res) => {
 
   db.get(SELECT_ID, values, (err, row) => {
     if (err) {
-      res
-        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json({ error: err.message });
+      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
+        error: err.message,
+        code: err.code, // If the error has a specific code
+        details: {
+          /* any relevant details */
+        },
+        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+      });
       return;
     }
     res.json(row);
@@ -66,9 +76,14 @@ app.post(`/${table}`, (req, res) => {
 
   db.run(INSERT_INTO, values, function (err) {
     if (err) {
-      res
-        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json({ error: err.message });
+      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
+        error: err.message,
+        code: err.code, // If the error has a specific code
+        details: {
+          /* any relevant details */
+        },
+        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+      });
       return;
     }
     res.status(HTTP_STATUS_CREATED).json({ id: this.lastID });
@@ -88,9 +103,14 @@ app.put(`/${table}/:id`, (req, res) => {
 
   db.run(UPDATE, values, function (err) {
     if (err) {
-      res
-        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json({ error: err.message });
+      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
+        error: err.message,
+        code: err.code, // If the error has a specific code
+        details: {
+          /* any relevant details */
+        },
+        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+      });
       return;
     }
     res
@@ -105,9 +125,14 @@ app.delete(`/${table}/:id`, (req, res) => {
 
   db.run(DELETE, values, function (err) {
     if (err) {
-      res
-        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json({ error: err.message });
+      res.status(HTTP_STATUS_INTERNAL_SERVER_ERROR).json({
+        error: err.message,
+        code: err.code, // If the error has a specific code
+        details: {
+          /* any relevant details */
+        },
+        stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Only show stack traces in development
+      });
       return;
     }
     res
@@ -117,5 +142,5 @@ app.delete(`/${table}/:id`, (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log(`Server is running on <http://localhost:8080> ...`);
+  console.log(`Server is running on http://localhost:8080 ...`);
 });
