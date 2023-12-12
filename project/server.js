@@ -1,6 +1,12 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 
+// Define HTTP status codes
+const HTTP_STATUS_OK = 200;
+const HTTP_STATUS_CREATED = 201;
+const HTTP_STATUS_NO_CONTENT = 204;
+const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
+
 // Connect to SQLite database
 let db = new sqlite3.Database("./database.db");
 
@@ -19,7 +25,9 @@ app.get("/", (req, res) => {
 app.get("/clothes", (req, res) => {
   db.all("SELECT * FROM Clothes", [], (err, rows) => {
     if (err) {
-      res.status(500).json({ error: err.message });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json({ error: err.message });
       return;
     }
     res.json(rows);
@@ -33,7 +41,9 @@ app.get("/clothes/:id", (req, res) => {
 
   db.get(query, values, (err, row) => {
     if (err) {
-      res.status(500).json({ error: err.message });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json({ error: err.message });
       return;
     }
     res.json(row);
@@ -54,10 +64,12 @@ app.post("/clothes", (req, res) => {
 
   db.run(query, values, function (err) {
     if (err) {
-      res.status(500).json({ error: err.message });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json({ error: err.message });
       return;
     }
-    res.json({ id: this.lastID });
+    res.status(HTTP_STATUS_CREATED).json({ id: this.lastID });
   });
 });
 
@@ -76,10 +88,14 @@ app.put("/clothes/:id", (req, res) => {
 
   db.run(query, values, function (err) {
     if (err) {
-      res.status(500).json({ error: err.message });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json({ error: err.message });
       return;
     }
-    res.json({ message: "Row updated", changes: this.changes });
+    res
+      .status(HTTP_STATUS_OK)
+      .json({ message: "Row updated", changes: this.changes });
   });
 });
 
@@ -90,13 +106,17 @@ app.delete("/clothes/:id", (req, res) => {
 
   db.run(query, values, function (err) {
     if (err) {
-      res.status(500).json({ error: err.message });
+      res
+        .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
+        .json({ error: err.message });
       return;
     }
-    res.json({ message: "Row deleted", changes: this.changes });
+    res
+      .status(HTTP_STATUS_NO_CONTENT)
+      .json({ message: "Row deleted", changes: this.changes });
   });
 });
 
 app.listen(8080, () => {
-  console.log("Server is running on http://localhost:8080 ...");
+  console.log("Server is running on <http://localhost:8080> ...");
 });
