@@ -17,9 +17,10 @@ Date of last update:
 
    git clone https://github.com/jingjingyang0803/tamk-5G00DM05-3005.git
 
-3. Navigate to the cloned repository and then to the project folder.
+3. Navigate to the cloned repository and then to the project folder by running `cd tamk-5G00DM05-3005/project`.
 4. Run `npm install` to install all dependencies.
 5. Setup SQLite database by running SQL scripts.
+   - Run `sqlite3 database.db < sql/drop.sql` to clear the database.
    - Run `sqlite3 database.db < sql/create.sql` to create tables.
    - Run `sqlite3 database.db < sql/insert.sql` to insert initial data.
 6. Run `node server.js` to start the server.
