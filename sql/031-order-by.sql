@@ -15,25 +15,20 @@
 -- ----- --- ----------
 -- */
 
-
+    
 SELECT
-    ename,
-    sal,
-    sal * 1.15 AS "new salary"
+    e.ename,
+    e.sal,
+    e.sal * 1.15 AS "new salary"
 FROM
-    emp
+    emp e
+INNER JOIN
+    emp m ON e.mgr = m.empno
 WHERE
-    mgr = (
-        SELECT
-            empno
-        FROM
-            emp
-        WHERE
-            LOWER(ename) = 'blake'
-    )
+    LOWER(m.ename) = 'blake'
 ORDER BY
     "new salary" ASC,
-    ename ASC;
+    e.ename ASC;
 
 
 --================== Varify =====================
