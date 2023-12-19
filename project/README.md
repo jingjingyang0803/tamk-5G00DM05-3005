@@ -20,9 +20,9 @@ Date of last update:
 3. Navigate to the cloned repository and then to the project folder by running `cd tamk-5G00DM05-3005/project`.
 4. Run `npm install` to install all dependencies.
 5. Setup SQLite database by running SQL scripts.
-   - Run `sqlite3 database.db < sql/drop.sql` to clear the database.
-   - Run `sqlite3 database.db < sql/create.sql` to create tables.
-   - Run `sqlite3 database.db < sql/insert.sql` to insert initial data.
+   - Run `sqlite3 database.db < sql/create.sql` to create the Clothes table.
+   - Run `sqlite3 database.db < sql/delete.sql` to delete all data from the Clothes table.
+   - Run `sqlite3 database.db < sql/insert.sql` to insert data into the Clothes table.
 6. Run `node server.js` to start the server.
 7. The server runs on `http://localhost:8080`.
 

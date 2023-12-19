@@ -2,47 +2,8 @@
 
 To create and manage the SQLite database, follow the instructions below:
 
-1. **Create the Database**
-
-   To create the required tables in the SQLite database, run the `create.sql` script. This script will create a table named `Clothes` with the fields `id`, `name`, `type`, `size`, `color`, and `price`.
-
-   The `create.sql` script content:
-
-   ```sql
-   CREATE TABLE Clothes (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      type TEXT NOT NULL,
-      size TEXT,
-      color TEXT,
-      price REAL
-   );
-   ```
-
-2. **Insert Initial Data**
-
-   To insert initial data into the `Clothes` table, run the `insert.sql` script. This script will insert some sample data into the table.
-
-   The `insert.sql` script content:
-
-   ```sql
-   INSERT INTO Clothes (name, type, size, color, price) VALUES
-   ('Denim Jacket', 'Jacket', 'M', 'Blue', 59.99),
-   ('Leather Boots', 'Shoes', '8', 'Black', 89.99),
-   ('Floral Dress', 'Dress', 'S', 'Multicolor', 45.99),
-   ('Cotton T-Shirt', 'Shirt', 'L', 'White', 15.99);
-   ```
-
-3. **Delete Data**
-
-   If you want to delete all data from the `Clothes` table, run the `delete.sql` script. This script will delete all records from the table.
-
-   The `delete.sql` script content:
-
-   ```sql
-   DELETE FROM Clothes;
-   ```
+1. `sqlite3 database.db < sql/create.sql` - to create the Clothes table.
+2. `sqlite3 database.db < sql/insert.sql` - to insert data into the Clothes table.
+3. `sqlite3 database.db < sql/delete.sql` - only use this if you want to delete all data from the Clothes table.
 
 Please note that to run these scripts, you should have SQLite installed on your system and use the SQLite command-line utility.
-
-The general command to run these scripts is `sqlite3 database.db < sql/filename.sql`, where `filename.sql` is the name of the script you want to run (e.g., `create.sql`, `insert.sql`, or `delete.sql`).
