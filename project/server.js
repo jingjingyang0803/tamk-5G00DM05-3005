@@ -6,20 +6,31 @@ const sqlite3 = require("sqlite3").verbose(); // Import SQLite
 let db = new sqlite3.Database("./database.db"); // Connect to SQLite database
 const table = "Clothes"; // Define table name
 
-// Define HTTP status codes
-const HTTP_STATUS_OK = 200; // OK status, request succeeded
-const HTTP_STATUS_CREATED = 201; // Request succeeded and a new resource was created as a result
-const HTTP_STATUS_NO_CONTENT = 204; // Request succeeded, but there's no representation to return (i.e. the response is empty)
-const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500; // Server encountered an unexpected condition which prevented it from fulfilling the request
+//// Define HTTP status codes
+// OK status, request succeeded
+const HTTP_STATUS_OK = 200;
+// Request succeeded and a new resource was created as a result
+const HTTP_STATUS_CREATED = 201;
+// Request succeeded, but there's no representation to return (i.e. the response is empty)
+const HTTP_STATUS_NO_CONTENT = 204;
+// Server encountered an unexpected condition which prevented it from fulfilling the request
+const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
 
-// Define SQL queries
-const SELECT_ALL = `SELECT * FROM ${table}`; // SQL query to select all records from table
-const SELECT_ID = `SELECT * FROM ${table} WHERE id = ?`; // SQL query to select record from table by id
-const SEARCH_BY_NAME = `SELECT * FROM ${table} WHERE name LIKE ?`; // SQL query to find records by name
-const SEARCH_BY_SIZE_AND_COLOR = `SELECT * FROM ${table} WHERE LOWER(size) = LOWER(?) AND LOWER(color) = LOWER(?)`; // SQL query to find records by size and color
-const INSERT_INTO = `INSERT INTO ${table} (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)`; // SQL query to insert new record into table
-const UPDATE = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`; // SQL query to update a record in the table
-const DELETE = `DELETE FROM ${table} WHERE id = ?`; // SQL query to delete a record from the table by id
+//// Define SQL queries
+// SQL query to select all records from table
+const SELECT_ALL = `SELECT * FROM ${table}`;
+// SQL query to select record from table by id
+const SELECT_ID = `SELECT * FROM ${table} WHERE id = ?`;
+// SQL query to find records by name
+const SEARCH_BY_NAME = `SELECT * FROM ${table} WHERE name LIKE ?`;
+// SQL query to find records by size and color
+const SEARCH_BY_SIZE_AND_COLOR = `SELECT * FROM ${table} WHERE LOWER(size) = LOWER(?) AND LOWER(color) = LOWER(?)`;
+// SQL query to insert new record into table
+const INSERT_INTO = `INSERT INTO ${table} (name, type, size, color, price) VALUES (?, ?, ?, ?, ?)`;
+// SQL query to update a record in the table
+const UPDATE = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, price = ? WHERE id = ?`;
+// SQL query to delete a record from the table by id
+const DELETE = `DELETE FROM ${table} WHERE id = ?`;
 
 // Function to create error response
 function createErrorResponse(err) {
@@ -32,7 +43,8 @@ function createErrorResponse(err) {
       headers: req.headers, // Headers sent with the request
       body: req.body, // Body of the request
     },
-    stack: process.env.NODE_ENV === "development" ? err.stack : "hidden", // Stack trace (only in development)
+    // Stack trace (only in development)
+    stack: process.env.NODE_ENV === "development" ? err.stack : "hidden",
   };
 }
 
