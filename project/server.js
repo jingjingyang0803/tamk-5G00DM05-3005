@@ -7,12 +7,16 @@ let db = new sqlite3.Database("./database.db"); // Connect to SQLite database
 const table = "Clothes"; // Define table name
 
 //// Define HTTP status codes
+// The requested resource resides temporarily under a different URI
+const HTTP_STATUS_FOUND = 302;
 // OK status, request succeeded
 const HTTP_STATUS_OK = 200;
 // Request succeeded and a new resource was created as a result
 const HTTP_STATUS_CREATED = 201;
 // Request succeeded, but there's no representation to return (i.e. the response is empty)
 const HTTP_STATUS_NO_CONTENT = 204;
+// Client sent an invalid request
+const HTTP_STATUS_BAD_REQUEST = 400;
 // Server encountered an unexpected condition which prevented it from fulfilling the request
 const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
 
@@ -37,12 +41,6 @@ function createErrorResponse(err) {
   return {
     error: err.message, // Error message
     code: err.code, // Error code
-    details: {
-      method: req.method, // HTTP method of the request
-      url: req.url, // Requested URL
-      headers: req.headers, // Headers sent with the request
-      body: req.body, // Body of the request
-    },
     // Stack trace (only in development)
     stack: process.env.NODE_ENV === "development" ? err.stack : "hidden",
   };
@@ -50,7 +48,7 @@ function createErrorResponse(err) {
 
 app.get("/", (req, res) => {
   // Root endpoint
-  res.redirect("/clothes"); // Redirect to '/clothes'
+  res.status(HTTP_STATUS_FOUND).redirect("/clothes"); // Redirect to '/clothes'
 });
 
 app.get(`/clothes`, (req, res) => {
@@ -85,7 +83,7 @@ app.get(`/clothes/:id`, (req, res) => {
   });
 });
 
-// Endpoint to handle GET requests to '/clothes'
+// Endpoint to handle GET requests to '/search'
 app.get(`/search`, (req, res) => {
   // Check if name query parameter is given
   if (req.query.name) {
@@ -126,7 +124,9 @@ app.get(`/search`, (req, res) => {
 
   // If neither size and color nor name query parameters are given, send error message
   else {
-    res.status(400).json({ message: "Invalid query parameters" });
+    res
+      .status(HTTP_STATUS_BAD_REQUEST)
+      .json({ message: "Invalid query parameters" });
   }
 });
 
