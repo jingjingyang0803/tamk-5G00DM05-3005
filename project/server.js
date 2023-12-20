@@ -13,8 +13,6 @@ const HTTP_STATUS_FOUND = 302;
 const HTTP_STATUS_OK = 200;
 // Request succeeded and a new resource was created as a result
 const HTTP_STATUS_CREATED = 201;
-// Request succeeded, but there's no representation to return (i.e. the response is empty)
-const HTTP_STATUS_NO_CONTENT = 204;
 // Client sent an invalid request
 const HTTP_STATUS_BAD_REQUEST = 400;
 // Server encountered an unexpected condition which prevented it from fulfilling the request
@@ -36,22 +34,12 @@ const UPDATE = `UPDATE ${table} SET name = ?, type = ?, size = ?, color = ?, pri
 // SQL query to delete a record from the table by id
 const DELETE = `DELETE FROM ${table} WHERE id = ?`;
 
-// Function to create error response
-function createErrorResponse(err) {
-  return {
-    error: err.message, // Error message
-    code: err.code, // Error code
-    // Stack trace (only in development)
-    stack: process.env.NODE_ENV === "development" ? err.stack : "hidden",
-  };
-}
-
 app.get("/", (req, res) => {
   // Root endpoint
   res.status(HTTP_STATUS_FOUND).redirect("/clothes"); // Redirect to '/clothes'
 });
 
-app.get(`/clothes`, (req, res) => {
+app.get("/clothes", (req, res) => {
   // GET endpoint for all records
   db.all(SELECT_ALL, [], (err, rows) => {
     // Execute SQL query
@@ -59,7 +47,7 @@ app.get(`/clothes`, (req, res) => {
       // If error occurs
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json(createErrorResponse(err)); // Send error response
+        .json({ error: err.message, code: err.code }); // Send error response
       return;
     }
     res.json(rows); // Send response with all rows
@@ -76,7 +64,7 @@ app.get(`/clothes/:id`, (req, res) => {
       // If error occurs
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json(createErrorResponse(err)); // Send error response
+        .json({ error: err.message, code: err.code }); // Send error response
       return;
     }
     res.json(row); // Send response with the row
@@ -96,7 +84,7 @@ app.get(`/search`, (req, res) => {
       if (err) {
         res
           .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-          .json(createErrorResponse(err));
+          .json({ error: err.message, code: err.code }); // Send error response
         return;
       }
       // If no error, send rows returned by the query as response
@@ -114,7 +102,7 @@ app.get(`/search`, (req, res) => {
       if (err) {
         res
           .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-          .json(createErrorResponse(err));
+          .json({ error: err.message, code: err.code }); // Send error response
         return;
       }
       // If no error, send rows returned by the query as response
@@ -126,7 +114,7 @@ app.get(`/search`, (req, res) => {
   else {
     res
       .status(HTTP_STATUS_BAD_REQUEST)
-      .json({ message: "Invalid query parameters" });
+      .json({ error: "Invalid query parameters", code: "400" }); // Send custom error response
   }
 });
 
@@ -146,11 +134,13 @@ app.post(`/clothes`, (req, res) => {
       // If error occurs, return 500 status (Internal Server Error) and error details
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json(createErrorResponse(err));
+        .json({ error: err.message, code: err.code }); // Send error response
       return;
     }
     // If no error, return 201 status (Created) and the ID of the newly created record
-    res.status(HTTP_STATUS_CREATED).json({ id: this.lastID });
+    res
+      .status(HTTP_STATUS_CREATED)
+      .json({ message: "Row added", ID: this.lastID });
   });
 });
 
@@ -171,7 +161,7 @@ app.put(`/clothes/:id`, (req, res) => {
       // If error occurs, return 500 status (Internal Server Error) and error details
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json(createErrorResponse(err));
+        .json({ error: err.message, code: err.code }); // Send error response
       return;
     }
     // If no error, return 200 status (OK) and a message indicating the update was successful
@@ -191,12 +181,12 @@ app.delete(`/clothes/:id`, (req, res) => {
       // If error occurs, return 500 status (Internal Server Error) and error details
       res
         .status(HTTP_STATUS_INTERNAL_SERVER_ERROR)
-        .json(createErrorResponse(err));
+        .json({ error: err.message, code: err.code }); // Send error response
       return;
     }
-    // If no error, return 204 status (No Content) and a message indicating the deletion was successful
+    // If no error, return 200 status (OK) and a message indicating the deletion was successful
     res
-      .status(HTTP_STATUS_NO_CONTENT)
+      .status(HTTP_STATUS_OK)
       .json({ message: "Row deleted", changes: this.changes });
   });
 });
