@@ -194,5 +194,5 @@ app.delete(`/clothes/:id`, (req, res) => {
 
 app.listen(port, () => {
   // Start server
-  console.log(`Server is running on http://localhost:8080 ...`);
+  console.log(`Server is running on http://localhost:$(port) ...`);
 });
