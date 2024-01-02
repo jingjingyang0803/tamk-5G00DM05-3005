@@ -1,5 +1,6 @@
 const express = require("express"); // Import Express
 const app = express(); // Initialize Express app
+const port = 8080;
 app.use(express.json()); // Enable to parse JSON body in POST requests
 
 const sqlite3 = require("sqlite3").verbose(); // Import SQLite
@@ -191,7 +192,7 @@ app.delete(`/clothes/:id`, (req, res) => {
   });
 });
 
-app.listen(8080, () => {
+app.listen(port, () => {
   // Start server
   console.log(`Server is running on http://localhost:8080 ...`);
 });
